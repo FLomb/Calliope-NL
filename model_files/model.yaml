@@ -7,7 +7,7 @@ import:  # Import other files from paths relative to this file, or absolute path
 
 # Model configuration: all settings that affect the built model
 model:
-    name: Dutch power system at NUTS2 resolution
+    name: Stylised Dutch power system at NUTS2 resolution
 
     # What version of Calliope this model is intended for
     calliope_version: 0.6.10

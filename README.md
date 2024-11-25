@@ -1,4 +1,4 @@
-# Calliope-NL
+# Calliope-NL-stylised
 A model of the Dutch power system with province-scale resolution (NUTS2, 12 nodes). The model is stylised and, for now, conceived primarily for education or research prototyping (e.g., algorithm testing) purposes.
 
 ## Requirements
