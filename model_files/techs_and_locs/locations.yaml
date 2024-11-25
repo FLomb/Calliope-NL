@@ -1,0 +1,186 @@
+locations:
+  NL11: # Groningen
+    coordinates:
+      lon: 6.8779375
+      lat: 53.151875
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        wind_offshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL12: # Friesland
+    coordinates:
+      lon: 5.94212
+      lat: 53.130320000000005
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        wind_offshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL13: # Drenthe
+    coordinates:
+      lon: 6.69054
+      lat: 52.79966
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL21: # Overijssel
+    coordinates:
+      lon: 6.442433333333334
+      lat: 52.41295
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL22: # Gelderland
+    coordinates:
+      lon: 6.012
+      lat: 51.94764
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL23: # Flevoland
+    coordinates:
+      lon: 5.672633333333333
+      lat: 52.60066666666666
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        wind_offshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL31: # Utrecht
+    coordinates:
+      lon: 4.9873
+      lat: 52.1608
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL32: # Noord Holland
+    coordinates:
+      lon: 4.748033333333333
+      lat: 52.36538333333333
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        wind_offshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL33: # South Holland
+    coordinates:
+      lon: 4.452383333333334
+      lat: 51.95356666666667
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        wind_offshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL34: # Zeeland
+    coordinates:
+      lon: 4.2185
+      lat: 51.4261
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        wind_offshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL41: # Brabant
+    coordinates:
+      lon: 5.135325
+      lat: 51.573025
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL42: # Limburg
+    coordinates:
+      lon: 5.9052
+      lat: 51.1524
+    techs:
+        demand_electricity:
+        wind_onshore.constraints.energy_cap_max: 5000
+        pv_farm.constraints.energy_cap_max: 2500
+        pv_rooftop.constraints.energy_cap_max: 5000
+        battery:
+        hydrogen_to_power:
+        ccgt:
+        curtailment:
+        lost_load:

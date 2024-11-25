@@ -1,0 +1,57 @@
+links:
+  NL11,NL12:
+    techs.hvac_transmission.distance: 78.08059088268635
+    techs.hvac_transmission.constraints.energy_cap_min: 0.6882
+    techs.hvac_transmission.constraints.energy_cap_max: 3.4401 # 5x current capacity for each link
+  NL11,NL13:
+    techs.hvac_transmission.distance: 51.40669619092387
+    techs.hvac_transmission.constraints.energy_cap_min: 3.0655
+    techs.hvac_transmission.constraints.energy_cap_max: 15.3276
+  NL31,NL33:
+    techs.hvac_transmission.distance: 54.0333446482031
+    techs.hvac_transmission.constraints.energy_cap_min: 0.2377
+    techs.hvac_transmission.constraints.energy_cap_max: 1.1886
+  NL32,NL33:
+    techs.hvac_transmission.distance: 62.54522684034896
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NL33,NL41:
+    techs.hvac_transmission.distance: 79.05131602490407
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NL34,NL41:
+    techs.hvac_transmission.distance: 81.91534737849409
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NL41,NL42:
+    techs.hvac_transmission.distance: 88.7810048549968
+    techs.hvac_transmission.constraints.energy_cap_min: 4.7547
+    techs.hvac_transmission.constraints.energy_cap_max: 23.7734
+  NL12,NL23:
+    techs.hvac_transmission.distance: 77.01279250805582
+    techs.hvac_transmission.constraints.energy_cap_min: 0.6882
+    techs.hvac_transmission.constraints.energy_cap_max: 3.4401
+  NL13,NL21:
+    techs.hvac_transmission.distance: 57.68592103711268
+    techs.hvac_transmission.constraints.energy_cap_min: 3.0655
+    techs.hvac_transmission.constraints.energy_cap_max: 15.3276
+  NL21,NL22:
+    techs.hvac_transmission.distance: 74.3546324021931
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NL21,NL23:
+    techs.hvac_transmission.distance: 70.1574152900598
+    techs.hvac_transmission.constraints.energy_cap_min: 3.0655
+    techs.hvac_transmission.constraints.energy_cap_max: 15.3276
+  NL22,NL41:
+    techs.hvac_transmission.distance: 91.64766157833785
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NL23,NL32:
+    techs.hvac_transmission.distance: 84.8212339513288
+    techs.hvac_transmission.constraints.energy_cap_min: 3.3962
+    techs.hvac_transmission.constraints.energy_cap_max: 16.9811
+  NL31,NL32:
+    techs.hvac_transmission.distance: 34.96977818838089
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
