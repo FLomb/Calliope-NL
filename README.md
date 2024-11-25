@@ -20,7 +20,7 @@ The data sources are the following:
 
 ## Limitations
 
-<img src="https://github.com/FLomb/Calliope-NL/blob/master/NL_grid_map.png" width="600">
+<img src="https://raw.githubusercontent.com/FLomb/Calliope-NL/refs/heads/main/NL_grid_map.png?token=GHSAT0AAAAAAC27ZGNSIGVHZYPCUVBYSKUQZ2ESINA" width="600">
 
 The model currently comes with several limitations as it is not intended to approximate the real-world system accurately but rather to enable teaching and research testing activities. Some of the main limitations to keep in mind are listed below.
 - Import and export of electricity from/to other countries is stylised and does not have any transmission constraints nor any weather dependency
