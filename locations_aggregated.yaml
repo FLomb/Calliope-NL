@@ -1,0 +1,114 @@
+BEL:
+  coordinates:
+    lat: 50.83641074800123
+    lon: 4.367420866106481
+  available_area: 0.5091122539240867
+  techs:
+    wind_onshore_monopoly:
+      constraints:
+        energy_cap_max: 0.37898293541342026
+    roof_mounted_pv:
+      constraints:
+        energy_cap_max: 0.9291193948126327
+    wind_offshore:
+      constraints:
+        energy_cap_max: 0.5215309107910843
+    hydro_run_of_river:
+      constraints:
+        energy_cap_max: 0.0005901533974257917
+    hydro_reservoir:
+      constraints:
+        energy_cap_max: 0.0001273566878980889
+        storage_cap_max: 0.11471688167926933
+    pumped_hydro:
+      constraints:
+        energy_cap_max: 0.013080000000000001
+        storage_cap_max: 0.057100000000000005
+    biofuel:
+      constraints:
+        resource: 0.020417939925799086
+        storage_cap_equals: 89.430576875
+NOR:
+  coordinates:
+    lat: 59.97908633541577
+    lon: 10.738534039157681
+  available_area: 10.624233832604808
+  techs:
+    wind_onshore_monopoly:
+      constraints:
+        energy_cap_max: 11.118702418554575
+    roof_mounted_pv:
+      constraints:
+        energy_cap_max: 0.28945078238283656
+    wind_offshore:
+      constraints:
+        energy_cap_max: 8.20283284729007
+    hydro_run_of_river:
+      constraints:
+        energy_cap_max: 0.0
+    hydro_reservoir:
+      constraints:
+        energy_cap_max: 0.3158704000000001
+        storage_cap_max: 443.6111905
+    pumped_hydro:
+      constraints:
+        energy_cap_max: 0.013443000000000002
+        storage_cap_max: 49.52921700000002
+    biofuel:
+      constraints:
+        resource: 0.03144438156392695
+        storage_cap_equals: 137.72639125000003
+DEU:
+  coordinates:
+    lat: 52.50152533912514
+    lon: 13.401959862713667
+  available_area: 7.509466536619143
+  techs:
+    wind_onshore_monopoly:
+      constraints:
+        energy_cap_max: 5.706353562806845
+    roof_mounted_pv:
+      constraints:
+        energy_cap_max: 6.1204606511415305
+    wind_offshore:
+      constraints:
+        energy_cap_max: 5.49963430984877
+    hydro_run_of_river:
+      constraints:
+        energy_cap_max: 0.035106151099999997
+    hydro_reservoir:
+      constraints:
+        energy_cap_max: 0.0020280000000000003
+        storage_cap_max: 1.7172186188132108
+    pumped_hydro:
+      constraints:
+        energy_cap_max: 0.036204200000000006
+        storage_cap_max: 0.21850718983739842
+    biofuel:
+      constraints:
+        resource: 0.1413475440818106
+        storage_cap_equals: 619.1022430783305
+DNK.techs:
+  hydro_run_of_river:
+    constraints:
+      energy_cap_equals: 0.0
+  hydro_reservoir:
+    constraints:
+      energy_cap_equals: 0.0
+      storage_cap_equals: 0.0
+  pumped_hydro:
+    constraints:
+      energy_cap_equals: 0.0
+      storage_cap_equals: 0.0
+GBR.techs:
+  hydro_run_of_river:
+    constraints:
+      energy_cap_equals: 0.008484750000000001
+  hydro_reservoir:
+    constraints:
+      energy_cap_equals: 0.005240000000000001
+      storage_cap_equals: 4.719944197044335
+  pumped_hydro:
+    constraints:
+      energy_cap_equals: 0.029050000000000003
+      storage_cap_equals: 0.2543
