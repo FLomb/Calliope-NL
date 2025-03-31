@@ -1,0 +1,83 @@
+links:
+  NLD_5,NLD_3:
+    techs.hvac_transmission.distance: 78.08059088268635
+    techs.hvac_transmission.constraints.energy_cap_min: 0.6882
+    techs.hvac_transmission.constraints.energy_cap_max: 3.4401 # 5x current capacity for each link
+  NLD_5,NLD_1:
+    techs.hvac_transmission.distance: 51.40669619092387
+    techs.hvac_transmission.constraints.energy_cap_min: 3.0655
+    techs.hvac_transmission.constraints.energy_cap_max: 15.3276
+  NLD_11,NLD_2:
+    techs.hvac_transmission.distance: 54.0333446482031
+    techs.hvac_transmission.constraints.energy_cap_min: 0.2377
+    techs.hvac_transmission.constraints.energy_cap_max: 1.1886
+  NLD_9,NLD_14:
+    techs.hvac_transmission.distance: 62.54522684034896
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NLD_14,NLD_8:
+    techs.hvac_transmission.distance: 79.05131602490407
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NLD_12,NLD_8:
+    techs.hvac_transmission.distance: 81.91534737849409
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NLD_8,NLD_7:
+    techs.hvac_transmission.distance: 88.7810048549968
+    techs.hvac_transmission.constraints.energy_cap_min: 4.7547
+    techs.hvac_transmission.constraints.energy_cap_max: 23.7734
+  NLD_3,NLD_2:
+    techs.hvac_transmission.distance: 77.01279250805582
+    techs.hvac_transmission.constraints.energy_cap_min: 0.6882
+    techs.hvac_transmission.constraints.energy_cap_max: 3.4401
+  NLD_1,NLD_10:
+    techs.hvac_transmission.distance: 57.68592103711268
+    techs.hvac_transmission.constraints.energy_cap_min: 3.0655
+    techs.hvac_transmission.constraints.energy_cap_max: 15.3276
+  NLD_10,NLD_4:
+    techs.hvac_transmission.distance: 74.3546324021931
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NLD_10,NLD_2:
+    techs.hvac_transmission.distance: 70.1574152900598
+    techs.hvac_transmission.constraints.energy_cap_min: 3.0655
+    techs.hvac_transmission.constraints.energy_cap_max: 15.3276
+  NLD_4,NLD_8:
+    techs.hvac_transmission.distance: 91.64766157833785
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+  NLD_2,NLD_9:
+    techs.hvac_transmission.distance: 84.8212339513288
+    techs.hvac_transmission.constraints.energy_cap_min: 3.3962
+    techs.hvac_transmission.constraints.energy_cap_max: 16.9811
+  NLD_11,NLD_9:
+    techs.hvac_transmission.distance: 34.96977818838089
+    techs.hvac_transmission.constraints.energy_cap_min: 2.3773
+    techs.hvac_transmission.constraints.energy_cap_max: 11.8867
+
+  BEL,NLD_12.techs: #Zeeland
+        ac_ohl_transmission:
+            constraints:
+                energy_cap_min: 0.035  # (100,000 MW)
+            costs.monetary.energy_cap: 17.5  # (10,000 EUR/MW)
+  NLD_7,DEU.techs: #Limburg
+        ac_ohl_transmission:
+            constraints:
+                energy_cap_min: 0.085  # (100,000 MW)
+            costs.monetary.energy_cap: 17.5  # (10,000 EUR/MW)
+  NLD_3,DNK.techs: #Friesland
+        dc_subsea_transmission:
+            constraints:
+                energy_cap_min: 0.007  # (100,000 MW)
+            costs.monetary.energy_cap: 94.2  # (10,000 EUR/MW)
+  NLD_14,GBR.techs: #South Holland
+        dc_subsea_transmission:
+            constraints:
+                energy_cap_min: 0.01  # (100,000 MW)
+            costs.monetary.energy_cap: 94.2  # (10,000 EUR/MW)
+  NLD_5,NOR.techs: #Groeningen
+        dc_subsea_transmission:
+            constraints:
+                energy_cap_min: 0.007  # (100,000 MW)
+            costs.monetary.energy_cap: 94.2  # (10,000 EUR/MW)
