@@ -4,111 +4,298 @@ BEL:
     lon: 4.367420866106481
   available_area: 0.5091122539240867
   techs:
-    wind_onshore_monopoly:
-      constraints:
-        energy_cap_max: 0.37898293541342026
-    roof_mounted_pv:
-      constraints:
-        energy_cap_max: 0.9291193948126327
-    wind_offshore:
-      constraints:
-        energy_cap_max: 0.5215309107910843
-    hydro_run_of_river:
-      constraints:
-        energy_cap_max: 0.0005901533974257917
-    hydro_reservoir:
-      constraints:
-        energy_cap_max: 0.0001273566878980889
-        storage_cap_max: 0.11471688167926933
-    pumped_hydro:
-      constraints:
-        energy_cap_max: 0.013080000000000001
-        storage_cap_max: 0.057100000000000005
-    biofuel:
-      constraints:
-        resource: 0.020417939925799086
-        storage_cap_equals: 89.430576875
+    import_electricity:
+    export_electricity:
 NOR:
   coordinates:
     lat: 59.97908633541577
     lon: 10.738534039157681
   available_area: 10.624233832604808
   techs:
-    wind_onshore_monopoly:
-      constraints:
-        energy_cap_max: 11.118702418554575
-    roof_mounted_pv:
-      constraints:
-        energy_cap_max: 0.28945078238283656
-    wind_offshore:
-      constraints:
-        energy_cap_max: 8.20283284729007
-    hydro_run_of_river:
-      constraints:
-        energy_cap_max: 0.0
-    hydro_reservoir:
-      constraints:
-        energy_cap_max: 0.3158704000000001
-        storage_cap_max: 443.6111905
-    pumped_hydro:
-      constraints:
-        energy_cap_max: 0.013443000000000002
-        storage_cap_max: 49.52921700000002
-    biofuel:
-      constraints:
-        resource: 0.03144438156392695
-        storage_cap_equals: 137.72639125000003
+    import_electricity:
+    export_electricity:
 DEU:
   coordinates:
     lat: 52.50152533912514
     lon: 13.401959862713667
   available_area: 7.509466536619143
   techs:
-    wind_onshore_monopoly:
+    import_electricity:
+    export_electricity:
+DNK.techs:
+  import_electricity:
+  export_electricity:
+GBR.techs:
+  import_electricity:
+  export_electricity:
+
+# Tech Renaming: demand_elec → demand_electricity, hydrogen → hydrogen_to_power, open_field_pv → pv_farm, roof_mounted_pv → pv_rooftop, wind_onshore_competing → wind_onshore
+# Tech Removal: biofuel, hydro_reservoir, wind_onshore_monopoly, and hydro_run_of_river.
+# Unit of measure conversion: available area [km^2], energy_cap_max [MW], resource_area_per_energy_cap [km^2/MW]
+
+# resource_area_per_energy_cap: 0.125 # (0.1 km^2/MW)
+# resource_area_per_energy_cap: 1.25 # (0.1 km^2/MW)
+
+NL11: # Groeningen
+  available_area: 955.2284389622511 # [km2]
+  coordinates:
+    lat: 53.21808379105402
+    lon: 6.744519781648054
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
       constraints:
-        energy_cap_max: 5.706353562806845
-    roof_mounted_pv:
+        energy_cap_max: 38209.13755849004 # [MW]
+    pv_rooftop:
       constraints:
-        energy_cap_max: 6.1204606511415305
+        energy_cap_max: 5166.729 # [MW]
     wind_offshore:
       constraints:
-        energy_cap_max: 5.49963430984877
-    hydro_run_of_river:
+        energy_cap_max: 43345.412 # [MW]
+    wind_onshore:
       constraints:
-        energy_cap_max: 0.035106151099999997
-    hydro_reservoir:
+        energy_cap_max: 3820.9137558490042 #[MW]
+
+NL13: # Drenthe
+  available_area: 692.098869048059
+  coordinates:
+    lat: 52.86293206206328
+    lon: 6.623830153114444
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
       constraints:
-        energy_cap_max: 0.0020280000000000003
-        storage_cap_max: 1.7172186188132108
-    pumped_hydro:
+        energy_cap_max: 27683.95476192236
+    pv_rooftop:
       constraints:
-        energy_cap_max: 0.036204200000000006
-        storage_cap_max: 0.21850718983739842
-    biofuel:
+        energy_cap_max: 6134.75997232698
+    wind_offshore:
       constraints:
-        resource: 0.1413475440818106
-        storage_cap_equals: 619.1022430783305
-DNK.techs:
-  hydro_run_of_river:
-    constraints:
-      energy_cap_equals: 0.0
-  hydro_reservoir:
-    constraints:
-      energy_cap_equals: 0.0
-      storage_cap_equals: 0.0
-  pumped_hydro:
-    constraints:
-      energy_cap_equals: 0.0
-      storage_cap_equals: 0.0
-GBR.techs:
-  hydro_run_of_river:
-    constraints:
-      energy_cap_equals: 0.008484750000000001
-  hydro_reservoir:
-    constraints:
-      energy_cap_equals: 0.005240000000000001
-      storage_cap_equals: 4.719944197044335
-  pumped_hydro:
-    constraints:
-      energy_cap_equals: 0.029050000000000003
-      storage_cap_equals: 0.2543
+        energy_cap_max: 0.0
+    wind_onshore:
+      constraints:
+        energy_cap_max: 2768.395476192236
+
+NL23: # Flevoland
+  available_area: 423.925227984786
+  coordinates:
+    lat: 52.52670063879632
+    lon: 5.600112476314213
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 16957.009119391438
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 3538.2380295615044
+    wind_offshore:
+      constraints:
+        energy_cap_max: 13764.661971195805
+    wind_onshore:
+      constraints:
+        energy_cap_max: 1695.700911939144
+
+NL12: # Friesland, Ijesselmer
+  available_area: 1241.5644808970392
+  coordinates:
+    lat: 53.1100462210068
+    lon: 5.848660192551414
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 49662.57923588157
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 7417.011284590787
+    wind_offshore:
+      constraints:
+        energy_cap_max: 209417.890449  #summed with Ijesselmer
+    wind_onshore:
+      constraints:
+        energy_cap_max: 4966.257923588157
+
+NL22: # Gelderland
+  available_area: 480.82658409327274
+  coordinates:
+    lat: 52.06172588783676
+    lon: 5.944695275838234
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 19233.063363730907
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 22064.329376052487
+    wind_offshore:
+      constraints:
+        energy_cap_max: 35024.20802215956
+    wind_onshore:
+      constraints:
+        energy_cap_max: 1923.306336373091
+
+NL42: # Limburg
+  available_area: 183.08725723624232
+  coordinates:
+    lat: 51.20627169896457
+    lon: 5.935689803085168
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 7323.490289449693
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 14103.732225915113
+    wind_offshore:
+      constraints:
+        energy_cap_max: 0
+    wind_onshore:
+      constraints:
+        energy_cap_max: 732.3490289449693
+
+NL41: # Noord-Brabant
+  available_area: 593.2506181448698
+  coordinates:
+    lat: 51.56087977932501
+    lon: 5.198722856501629
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 23730.024725794792
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 29936.873076222757
+    wind_offshore:
+      constraints:
+        energy_cap_max: 69750.7323991968
+    wind_onshore:
+      constraints:
+        energy_cap_max: 2373.002472579479
+
+NL32: # Noord-Holland
+  available_area: 648.4781568348408
+  coordinates:
+    lat: 52.58134636665498
+    lon: 4.8729050148665545
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 25939.12627339363
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 16027.784103227219
+    wind_offshore:
+      constraints:
+        energy_cap_max: 128416.46587789834
+    wind_onshore:
+      constraints:
+        energy_cap_max: 2593.912627339363
+
+NL21: # Overijssel
+  available_area: 456.69608004391193
+  coordinates:
+    lat: 52.44490959783872
+    lon: 6.4490072968444725
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 18267.843201756477
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 12477.73830336552
+    wind_offshore:
+      constraints:
+        energy_cap_max: 0
+    wind_onshore:
+      constraints:
+        energy_cap_max: 1826.7843201756477
+
+NL31: # Utrecht
+  available_area: 212.77124693617225
+  coordinates:
+    lat: 52.09599094316758
+    lon: 5.177473938306744
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 8510.84987744689
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 8502.619601726845
+    wind_offshore:
+      constraints:
+        energy_cap_max: 15405.61305578257
+    wind_onshore:
+      constraints:
+        energy_cap_max: 851.084987744689
+
+NL34: # Zeeland, Zeeuwse meren
+  available_area: 670.077765752 #summed
+  coordinates:
+    lat: 51.451726774291785
+    lon: 3.8352867148578684
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 26803.1106301 #summed
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 5302.17998066 #summed
+    wind_offshore:
+      constraints:
+        energy_cap_max: 260872.01732 #summed
+    wind_onshore:
+      constraints:
+        energy_cap_max: 2680.31106301 #summed
+
+NL33: # Zuid-Holland
+  available_area: 517.85333205387
+  coordinates:
+    lat: 51.948735317582305
+    lon: 4.504875249014121
+  techs:
+    battery: {}
+    demand_electricity: {}
+    hydrogen_to_power: {}
+    pv_farm:
+      constraints:
+        energy_cap_max: 20714.1332821548
+    pv_rooftop:
+      constraints:
+        energy_cap_max: 23909.297710572762
+    wind_offshore:
+      constraints:
+        energy_cap_max: 180147.78112408324
+    wind_onshore:
+      constraints:
+        energy_cap_max: 2071.41332821548
