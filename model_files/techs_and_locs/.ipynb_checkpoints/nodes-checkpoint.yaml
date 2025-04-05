@@ -1,0 +1,211 @@
+##
+# NODES
+##
+
+nodes:
+
+  NL11: # Groningen
+    longitude: 6.8779375
+    latitude: 53.151875
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 682
+        wind_offshore.flow_cap_max: 3184
+        pv_farm.flow_cap_max: 2429
+        pv_rooftop.flow_cap_max: 5167
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL12: # Friesland
+    longitude: 5.94212
+    latitude: 53.130320000000005
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 7583
+        wind_offshore.flow_cap_max: 380
+        pv_farm.flow_cap_max: 6271
+        pv_rooftop.flow_cap_max: 7417
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL13: # Drenthe
+    longitude: 6.69054
+    latitude: 52.79966
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 643
+        pv_farm.flow_cap_max: 2080
+        pv_rooftop.flow_cap_max: 6135
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL21: # Overijssel
+    longitude: 6.442433333333334
+    latitude: 52.41295
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 278
+        pv_farm.flow_cap_max: 2432
+        pv_rooftop.flow_cap_max: 12478
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL22: # Gelderland
+    longitude: 6.012
+    latitude: 51.94764
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 230
+        pv_farm.flow_cap_max: 1666
+        pv_rooftop.flow_cap_max: 22065
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL23: # Flevoland
+    longitude: 5.672633333333333
+    latitude: 52.60066666666666
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 643
+        wind_offshore.flow_cap_max: 1011
+        pv_farm.flow_cap_max: 276
+        pv_rooftop.flow_cap_max: 3538
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL31: # Utrecht
+    longitude: 4.9873
+    latitude: 52.1608
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 79
+        pv_farm.flow_cap_max: 1404
+        pv_rooftop.flow_cap_max: 8503
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL32: # Noord Holland
+    longitude: 4.748033333333333
+    latitude: 52.36538333333333
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 353
+        wind_offshore.flow_cap_max: 9434
+        pv_farm.flow_cap_max: 1237
+        pv_rooftop.flow_cap_max: 16028
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL33: # Zuid Holland
+    longitude: 4.452383333333334
+    latitude: 51.95356666666667
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 224
+        wind_offshore.flow_cap_max: 13243
+        pv_farm.flow_cap_max: 1652
+        pv_rooftop.flow_cap_max: 23910
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL34: # Zeeland
+    longitude: 4.2185
+    latitude: 51.4261
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 439
+        wind_offshore.flow_cap_max: 9925
+        pv_farm.flow_cap_max: 141
+        pv_rooftop.flow_cap_max: 5234
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL41: # Noord Brabant
+    longitude: 5.135325
+    latitude: 51.573025
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 544
+        pv_farm.flow_cap_max: 794
+        pv_rooftop.flow_cap_max: 29938
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  NL42: # Limburg
+    longitude: 5.9052
+    latitude: 51.1524
+    techs:
+        demand_power:
+        wind_onshore.flow_cap_max: 157
+        pv_farm.flow_cap_max: 255
+        pv_rooftop.flow_cap_max: 14104
+        battery:
+        hydrogen_power_storage:
+        ccgt:
+        curtailment:
+        lost_load:
+
+  BEL:
+    longitude: 4.378136579035989
+    latitude: 51.31726620661365
+    techs:
+        import_power:
+        export_power:
+  NOR:
+    latitude: 58.0951126628901
+    longitude: 6.6210454502746705
+    techs:
+        import_power:
+        export_power:
+  DEU:
+    latitude: 52.02040854483887
+    longitude: 7.279926060167003
+    techs:
+        import_power:
+        export_power:
+  DNK:
+    longitude: 8.401542890776913
+    latitude: 55.4325571130993
+    techs:
+        import_power:
+        export_power:
+  GBR:
+    longitude: 0.8455375006800074
+    latitude: 51.41852859078181
+    techs:
+        import_power:
+        export_power:
+    

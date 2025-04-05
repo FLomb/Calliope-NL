@@ -2,275 +2,248 @@
 # TECHNOLOGY DEFINITIONS
 ##
 
+templates:
+    interest_rate_setter:
+      data: 0.1  # average wind onshore WACC OECD from [@Steffen:2019]
+      index: monetary
+      dims: costs
+
 techs:
 
-    ##------------------------------------------------------------------------------------------
-    # Supply
-    ##------------------------------------------------------------------------------------------
+  ##------------------------------------------------------------------------------------------
+  # Firm supply
+  ##------------------------------------------------------------------------------------------
 
-    # ccgt
-    ccgt:
-        essentials:
-            name: 'Combined cycle gas turbine'
-            color: '#AB2C18'
-            parent: supply
-            carrier_out: electricity
-        constraints:
-            resource: inf
-            energy_eff: 0.57
-            energy_ramping: 0.8
-            lifetime: 25
-            # Senergy_cap_max_systemwide: 10000 # MW
-        costs:
-            monetary:
-                interest_rate: 0.10
-                energy_cap: 904.7795  # kEUR/MW
-                om_prod: 0.00455  # kEUR/MWh
-                om_annual_investment_fraction: 3.3392 # kEUR/MW/year
-                om_con: 0.100 # kEUR/MWh, gas price
-    # ccgt-end
-       
-    # wind on-shore
-    wind_onshore:
-        essentials:
-            name: 'On-shore wind power'
-            color: '#27B09F'
-            parent: supply
-            carrier_out: electricity
-        constraints:
-            resource: file=wind_nuts2.csv            
-            force_resource: True # all the resource must be used; if in excess, it goes in to the 'curtailment' technology
-            resource_unit: energy_per_cap
-            lifetime: 28.5
-        costs:
-            monetary:
-                interest_rate: 0.10
-                energy_cap: 1139.8826 # kEUR/MW
-                om_prod: 0  # kEUR/MWh
-                om_annual_investment_fraction: 1.2347 # kEUR/MW/year         
-    # wind on-shore-end
-
-    # wind off-shore
-    wind_offshore:
-        essentials:
-            name: 'Off-shore wind power'
-            color: '#275FB0'
-            parent: supply
-            carrier_out: electricity
-        constraints:
-            resource: file=windoff_nuts2.csv  
-            force_resource: True # see wind on-shore
-            resource_unit: energy_per_cap
-            lifetime: 30
-        costs:
-            monetary:
-                interest_rate: 0.10
-                energy_cap: 1769.1171 # kEUR/MW
-                om_prod: 0  # kEUR/MWh
-                om_annual_investment_fraction: 2.3741 # kEUR/MW/year         
-    # wind off-shore-end
-    
-    # pv farm
-    pv_farm:
-        essentials:
-            name: 'Photovoltaic power farm-scale'
-            color: '#FFE400'
-            parent: supply
-            carrier_out: electricity
-        constraints:
-            resource: file=pv_nuts2.csv  
-            force_resource: True # see wind on-shore
-            resource_unit: energy_per_cap
-            lifetime: 37.5
-        costs:
-            monetary:
-                interest_rate: 0.10
-                energy_cap: 473.1156  # kEUR/MW
-                om_prod: 0  # kEUR/MWh
-                om_annual_investment_fraction: 2.1982 # kEUR/MW/year         
-    # pv farm-end
-        
-    # pv rooftop
-    pv_rooftop:
-        essentials:
-            name: 'Photovoltaic power distributed'
-            color: '#FFB600'
-            parent: supply
-            carrier_out: electricity
-        constraints:
-            resource: file=pv_nuts2.csv  
-            force_resource: True # see wind on-shore
-            resource_unit: energy_per_cap
-            lifetime: 37.5
-        costs:
-            monetary:
-                interest_rate: 0.10
-                energy_cap: 880.0251 # kEUR/MW
-                om_prod: 0  # kEUR/MWh
-                om_annual_investment_fraction: 1.2567 # kEUR/MW/year     
-    # pv rooftop-end
-    
-    # imports
-    import_electricity:  # Generic energy-generating technology to be located abroad
-        essentials:
-            name: 'Electricity import'
-            color: '#FF009E'
-            parent: supply
-            carrier_out: electricity
-        constraints: 
-            resource: 1e5 # MWh, proxy for an infinite supply
-            force_resource: False
-            energy_prod: True
-            lifetime: 40
-        costs:
-            monetary:
-                om_prod: 0.1 # kEUR/MWh, reasonable electricity price for the Dutch market
-    # imports-end
-
-    # lost load
-    lost_load:  # dummy supply technology to represent lost load
-        essentials:
-            name: 'Lost load'
-            color: '#030303'
-            parent: supply
-            carrier_out: electricity
-        constraints: 
-            resource: 1e5 # MWh, proxy for an infinite supply
-            force_resource: False
-            energy_prod: True
-            lifetime: 20
-        costs:
-            monetary:
-                om_prod: 1e4 # kEUR/MWh, just a very high price, to make it the least attractive option
+  # lost load
+  lost_load:  # dummy supply technology to represent lost load
+    name: 'Lost load'
+    color: '#030303'
+    base_tech: supply
+    template: interest_rate_setter
+    carrier_out: power
+    lifetime: 20
+    cost_flow_out:
+      data: 1e4 # kEUR per MWh, just a very high price, to make it the least attractive option
+      index: monetary
+      dims: costs
     # lost load-end
-    
-    
-    ##------------------------------------------------------------------------------------------
-    # Storage
-    ##------------------------------------------------------------------------------------------
 
-    # battery storage
-    battery:
-        essentials:
-            name: 'Battery storage'
-            color: '#33F6FF'            
-            parent: storage
-            carrier: electricity
-        constraints:
-            energy_cap_per_storage_cap_max: 0.25  # {own_assumptions}
-            energy_eff: 0.9025  # 0.98*0.98 = 0.96 round-trip eff {IRENA2017}
-            lifetime: 15 
-            storage_initial: 0
-        costs:
-            monetary:
-                interest_rate: 0.10
-                storage_cap: 885 # kEUR/MWh
-                om_annual_investment_fraction: 0.57 # kEUR/MW/year
-                om_prod: 0.0020 # kEUR/MWh
-    # battery storage-end
+  # import power
+  import_power:  # dummy supply technology to represent import of power
+    name: 'Power Import'
+    color: '#ff31fe'
+    base_tech: supply
+    template: interest_rate_setter
+    carrier_out: power
+    lifetime: 20
+    cost_flow_out:
+      data: 0.1 # kEUR per MWh
+      index: monetary
+      dims: costs
+    # import power-end
 
-    # hydrogen-to-power storage
-    hydrogen_to_power:
-        essentials:
-            name: 'Hydrogen-to-power storage'
-            color: '#9958D6'            
-            parent: storage
-            carrier: electricity
-        constraints:
-            energy_eff: 0.542  # 0.293 round-trip; in reality, it's 0.5 to convert to hydrogen and 0.5874 to convert back to electricity
-            lifetime: 17.5 # average between the lifetime of different components
-            storage_initial: 0
-        costs:
-            monetary:
-                interest_rate: 0.10
-                storage_cap: 54.5  # kEUR/MWh  
-                energy_cap: 4403.83 # kEUR per MW_el | from Schmidt 2019, 3575.22 $/kW * 1.34 (2015 to 2025 inflation) * 0.92 (dollar to EUR 2025) 
-                om_annual_investment_fraction: 4.5 # kEUR per MW per year (average of fuel cell and electrolyser, DEA 2025)
-                om_prod: 0
-    # hydrogen-to-power storage-end
-        
-    ##------------------------------------------------------------------------------------------
-    # Transmission
-    ##------------------------------------------------------------------------------------------
-    
-    # inter-zonal
-    hvac_transmission:  # Generic HVAC transmission technology
-        essentials:
-            name: 'Transmission intra-zonal electricity'
-            color: '#CF74B2'
-            parent: transmission
-            carrier: electricity
-        constraints:
-            energy_eff: 0.96
-            lifetime: 60
-        costs:
-            monetary:
-                interest_rate: 0.1
-                energy_cap: 175  # kEUR/MW
-                om_annual_investment_fraction: 0.015 # kEUR/MW/year
-    # inter-zonal-end
+  ccgt:
+    name: "Combined cycle gas turbine"
+    color: "#E37A72"
+    base_tech: supply
+    template: interest_rate_setter
+    carrier_out: power
+    flow_out_eff: 0.57
+    flow_ramping: 0.8
+    lifetime: 25
+    cost_flow_cap:
+      data: 904.7795  # kEUR per MW
+      index: monetary
+      dims: costs
+    cost_flow_out:
+      data: 0.00455 # kEUR per MWh
+      index: monetary
+      dims: costs
+    cost_flow_in:
+      data: 0.1 # kEUR per MWh (gas price)
+      index: monetary
+      dims: costs
+    om_annual_investment_fraction:
+      data: 3.3392 # kEUR per MW peryear
+      index: monetary
+      dims: costs
 
-    # sub-sea
-    dc_subsea_transmission:  # Generic HVDC subsea transmission technology
-        essentials:
-            name: 'Transmission sub-sea electricity'
-            color: '#CF74B2'
-            parent: transmission
-            carrier: electricity
-        constraints:
-            energy_eff: 0.96
-            lifetime: 60
-        costs:
-            monetary:
-                interest_rate: 0.1
-                energy_cap: 942  # kEUR/MW
-                om_annual_investment_fraction: 0.015 # kEUR/MW/year
-    # sub-sea-end
-    
-    
-    
-    ##------------------------------------------------------------------------------------------
-    # Demand
-    ##------------------------------------------------------------------------------------------
+  ##------------------------------------------------------------------------------------------
+  # Variable renewable supply
+  ##------------------------------------------------------------------------------------------
 
-    # el_demand-start
-    demand_electricity:
-        essentials:
-            name: 'Electricity demand'
-            color: '#072486'
-            parent: demand
-            carrier: electricity
-        constraints:
-            force_resource: True # demand must be met
-            resource: file=electricity_demand_nuts2.csv
-    # el_demand-end
-   
-    # export
-    export_electricity:  
-        essentials:
-            name: 'Electricity export'
-            color: '#D800FF'
-            parent: demand
-            carrier_in: electricity
-        constraints:
-            force_resource: False
-            resource: -1e5 # MWh, proxy for an infinite sink
-        costs:
-            monetary:
-                om_con: -0.1 # same as the import price, but negative
-    # export-end
-    
-    # curtailment
-    curtailment:  
-        essentials:
-            name: 'Electricity curtailment'
-            color: '#6F6C7C'
-            parent: demand
-            carrier_in: electricity
-        constraints:
-            resource: -1e5 # MWh, proxy for an infinite sink
-            force_resource: False
-        costs:
-            monetary:
-                om_con: 0
-    # curtailment-end
+  pv_farm:
+    name: "Solar photovoltaic power"
+    color: "#F9D956"
+    base_tech: supply
+    template: interest_rate_setter
+    carrier_out: power
+    source_unit: per_cap
+    lifetime: 37.5 
+    cost_flow_cap:
+      data: 473.1156  # kEUR per MWW
+      index: monetary
+      dims: costs
+    cost_flow_out:
+      data:  0.0000106 # kEUR per MWh
+      index: monetary
+      dims: costs
+    om_annual_investment_fraction:
+      data: 2.1982 # kEUR per MW peryear
+      index: monetary
+      dims: costs
+
+  pv_rooftop:
+    name: "Solar photovoltaic power"
+    color: "#F9D956"
+    base_tech: supply
+    template: interest_rate_setter
+    carrier_out: power
+    source_unit: per_cap
+    lifetime: 37.5 
+    cost_flow_cap:
+      data: 880.0251  # kEUR per MWW
+      index: monetary
+      dims: costs
+    cost_flow_out:
+      data:  0.0000106 # kEUR per MWh
+      index: monetary
+      dims: costs
+    om_annual_investment_fraction:
+      data: 1.2567 # kEUR per MW peryear
+      index: monetary
+      dims: costs
+
+  wind_onshore:
+    name: "Wind power onshore"
+    color: "#56F9C0"
+    base_tech: supply
+    template: interest_rate_setter
+    carrier_out: power
+    source_unit: per_cap
+    lifetime: 28.5 
+    cost_flow_cap:
+      data: 1139.8826 # kEUR per MW
+      index: monetary
+      dims: costs
+    cost_flow_out:
+      data: 0.001508 # kEUR per MW
+      index: monetary
+      dims: costs
+    om_annual_investment_fraction:
+      data: 1.2347 # kEUR per MW peryear
+      index: monetary
+      dims: costs
+
+
+  wind_offshore:
+    name: "Wind power offshore"
+    color: "#56CBF9"
+    base_tech: supply
+    template: interest_rate_setter
+    carrier_out: power
+    source_unit: per_cap
+    lifetime: 30 
+    cost_flow_cap:
+      data: 1769.1171 # kEUR per MW
+      index: monetary
+      dims: costs
+    cost_flow_out:
+      data: 0.0000212 # kEUR per MW
+      index: monetary
+      dims: costs
+    om_annual_investment_fraction:
+      data: 2.374 # kEUR per MW peryear
+      index: monetary
+      dims: costs
+
+
+  ##------------------------------------------------------------------------------------------
+  # Storage
+  ##------------------------------------------------------------------------------------------
+
+  # battery storage
+  battery:
+    name: 'Battery storage'
+    color: '#33F6FF'            
+    base_tech: storage
+    template: interest_rate_setter
+    carrier_in: power
+    carrier_out: power    
+    storage_discharge_depth: 0.01
+    lifetime: 15  # 8000 charge cycles
+    flow_cap_per_storage_cap_max: 0.25 #takes four hours for discharging 
+    flow_out_eff: 0.95
+    flow_in_eff: 0.95
+    storage_loss: 0.01  # 1% loss per hour assumedcosts:
+    cost_storage_cap: 
+      data: 885 # kEUR per MWh
+      index: monetary
+      dims: costs
+    cost_om_annual_investment_fraction: 
+      data: 0.57 # kEUR per MW per year
+      index: monetary
+      dims: costs
+    cost_flow_out: 
+      data: 0.0020 # kEUR/MWh
+      index: monetary
+      dims: costs
+  # battery storage-end
+
+  # power-to-hydrogen-to-power storage
+  hydrogen_power_storage:
+    name: 'Hydrogen-to-power storage'
+    color: '#9958D6'            
+    base_tech: storage
+    template: interest_rate_setter
+    carrier_in: power
+    carrier_out: power    
+    lifetime: 17.5  # average of 10 years (fuel cell) and 25 (electrolyser)
+    flow_out_eff: 0.5 # fuel cell
+    flow_in_eff: 0.5874 # electrolyser
+    cost_storage_cap: 
+      data: 54.5 # kEUR per MWh
+      index: monetary
+      dims: costs
+    cost_flow_cap: 
+      data: 4403.83 # kEUR per MW_el | from Schmidt 2019, 3575.22 $/kW * 1.34 (2015 to 2025 inflation) * 0.92 (dollar to EUR 2025) 
+      index: monetary
+      dims: costs
+    cost_om_annual_investment_fraction: 
+      data: 4.5 # kEUR per MW per year (average of fuel cell and electrolyser, DEA 2025)
+      index: monetary
+      dims: costs
+    cost_flow_out: 
+      data: 0 # kEUR/MWh
+      index: monetary
+      dims: costs       
+  # power-to-hydrogen-to-power storage-end
+
+
+  ##
+  # Demand
+  ##
+
+  demand_power:
+    name: "Power demand"
+    color: "#072486"
+    base_tech: demand
+    carrier_in: power
+
+  curtailment:
+    name: "Power curtailment"
+    color: "#70002a"
+    base_tech: demand
+    carrier_in: power
+    resource_use_max: 20000 # higher than peak demand
+
+  export_power:
+    name: "Power export"
+    color: "#ff31fe"
+    base_tech: demand
+    carrier_in: power
+    resource_use_max: 20000 # higher than peak demand
+    cost_flow_in:
+      data: -0.1 # kEUR per MW
+      index: monetary
+      dims: costs

@@ -1,0 +1,165 @@
+##
+# TRANSMISSION BETWEEN NODES
+##
+
+templates:
+  hv_transmission:
+    name: "High-voltage AC power transmission"
+    color: "#6783E3"
+    carrier_in: power
+    carrier_out: power
+    base_tech: transmission
+    flow_out_eff_per_distance: 0.99995 # 5% per 1000km
+    lifetime: 60
+    template: interest_rate_setter
+    cost_flow_cap:
+      data: 175  # kEUR per MW
+      index: monetary
+      dims: costs
+  subsea_transmission:
+    name: "High-voltage subsea DC power transmission"
+    color: "#6783E3"
+    carrier_in: power
+    carrier_out: power
+    base_tech: transmission
+    flow_out_eff_per_distance: 0.99995 # 5% per 1000km
+    lifetime: 60
+    template: interest_rate_setter
+    cost_flow_cap:
+      data: 942  # kEUR per MW
+      index: monetary
+      dims: costs
+
+techs:
+  NL11_to_NL12:
+    template: hv_transmission
+    from: NL11
+    to: NL12
+    distance: 78.08059088268635
+    flow_cap_min: 688.2
+    flow_cap_max: 3440.1 # 5x current capacity for each link
+  NL11_to_NL13:
+    template: hv_transmission
+    from: NL11
+    to: NL13
+    distance: 51.40669619092387
+    flow_cap_min: 3065.5
+    flow_cap_max: 15327.6
+  NL31_to_NL33:
+    template: hv_transmission
+    from: NL31
+    to: NL33
+    distance: 54.0333446482031
+    flow_cap_min: 237.7
+    flow_cap_max: 1188.6
+  NL32_to_NL33:
+    template: hv_transmission
+    from: NL32
+    to: NL33
+    distance: 62.54522684034896
+    flow_cap_min: 2377.3
+    flow_cap_max: 11886.7
+  NL33_to_NL41:
+    template: hv_transmission
+    from: NL33
+    to: NL41
+    distance: 79.05131602490407
+    flow_cap_min: 2377.3
+    flow_cap_max: 11886.7
+  NL34_to_NL41:
+    template: hv_transmission
+    from: NL34
+    to: NL41
+    distance: 81.91534737849409
+    flow_cap_min: 2377.3
+    flow_cap_max: 11886.7
+  NL41_to_NL42:
+    template: hv_transmission
+    from: NL41
+    to: NL42
+    distance: 88.7810048549968
+    flow_cap_min: 4754.7
+    flow_cap_max: 23773.4
+  NL12_to_NL23:
+    template: hv_transmission
+    from: NL12
+    to: NL23
+    distance: 77.01279250805582
+    flow_cap_min: 688.2
+    flow_cap_max: 3440.1
+  NL13_to_NL21:
+    template: hv_transmission
+    from: NL13
+    to: NL21
+    distance: 57.68592103711268
+    flow_cap_min: 3.0655
+    flow_cap_max: 15.3276
+  NL21_to_NL22:
+    template: hv_transmission
+    from: NL21
+    to: NL22
+    distance: 74.3546324021931
+    flow_cap_min: 2.3773
+    flow_cap_max: 11.8867
+  NL21_to_NL23:
+    template: hv_transmission
+    from: NL21
+    to: NL23
+    distance: 70.1574152900598
+    flow_cap_min: 3065.5
+    flow_cap_max: 15327.6
+  NL22_to_NL41:
+    template: hv_transmission
+    from: NL22
+    to: NL41
+    distance: 91.64766157833785
+    flow_cap_min: 2377.3
+    flow_cap_max: 11886.7
+  NL23_to_NL32:
+    template: hv_transmission
+    from: NL23
+    to: NL32
+    distance: 84.8212339513288
+    flow_cap_min: 3396.2
+    flow_cap_max: 16981.1
+  NL31_to_NL32:
+    template: hv_transmission
+    from: NL31
+    to: NL32
+    distance: 34.96977818838089
+    flow_cap_min: 2377.3
+    flow_cap_max: 11886.7
+
+
+  NL34_to_BEL.techs: # Zeeland
+    template: hv_transmission
+    from: NL314
+    to: BEL
+    flow_cap_min: 3500
+    flow_cap_max: 3500        
+  NL42_to_DEU.techs: # Limburg
+    template: hv_transmission
+    from: NL314
+    to: BEL
+    flow_cap_min: 8500
+    flow_cap_max: 8500 
+  NL12_to_DNK.techs: # Friesland
+    template: subsea_transmission
+    from: NL314
+    to: BEL
+    flow_cap_min: 700
+    flow_cap_max: 700 
+  NL33_to_GBR.techs: # Zuid Holland
+    template: subsea_transmission
+    from: NL314
+    to: BEL
+    flow_cap_min: 1000
+    flow_cap_max: 1000 
+  NL11_to_NOR.techs: # Groningen
+    template: subsea_transmission
+    from: NL314
+    to: BEL
+    flow_cap_min: 700
+    flow_cap_max: 700
+
+  
