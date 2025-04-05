@@ -1,7 +1,7 @@
 # Calliope-NL-12
 A model of the Dutch power system with province-scale resolution (NUTS2, 12 nodes). The model is stylised and, for now, conceived primarily for education or research prototyping (e.g., algorithm testing) purposes.
 
-<img src="https://github.com/FLomb/Calliope-NL/blob/main/NL_grid_map.png" width="600">
+<img src="NL_grid_map.png" width="600">
 
 ## Requirements
 The model is built on the Python-based open-source energy modelling framework Calliope, version 0.7.0.dev5. 
