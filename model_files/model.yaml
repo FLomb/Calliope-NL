@@ -19,16 +19,16 @@ model:
 
 # Run configuration: all settings that affect how the built model is run
 run:
-    solver: cbc
-#    solver_options: # to speed up Gurobi's algorithm dramatically, but may be impractical when running a fixed design
-#        Threads: 6
-#        Method: 2 # use barrier, but do not run simplex in parallel
-#        Crossover: -0 # stop after barrier, do not perform crossover
-#        FeasibilityTol: 1e-3
-#        OptimalityTol: 1e-4
-#        BarConvTol: 1e-4
+    solver: gurobi
+    solver_options: # to speed up Gurobi's algorithm dramatically, but may be impractical when running a fixed design
+        Threads: 6
+        Method: 2 # use barrier, but do not run simplex in parallel
+        Crossover: -0 # stop after barrier, do not perform crossover
+        FeasibilityTol: 1e-3
+        OptimalityTol: 1e-4
+        BarConvTol: 1e-4
 
-    ensure_feasibility: True  # Switches off the "unmet demand" constraint, which we model as an explicit technology
+    ensure_feasibility: False  # If False, wwitches off the "unmet demand" constraint, which we model as an explicit technology
 
     bigM: 1e6  # Sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
 

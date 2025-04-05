@@ -10,7 +10,10 @@ HARDCODED_LINK_DIRECTIONS = ['NL11,NL12','NL11,NL13',
                              'NL41,NL42','NL12,NL23',
                              'NL13,NL21','NL21,NL22',
                              'NL21,NL23','NL22,NL41',
-                             'NL23,NL32','NL31,NL32']
+                             'NL23,NL32','NL31,NL32',
+                             'NL34,BEL','NL42,DEU',
+                             'NL12,DNK','NL33,GBR',
+                             'NL11,NOR']
 
 def plan_results_to_fixedcap_override(results, filename='generic'):
     
@@ -19,7 +22,8 @@ def plan_results_to_fixedcap_override(results, filename='generic'):
     safe_oversize = 1
     override_dict = {'overrides':{'fix-design-to-{}'.format(filename):{'locations':{}}}}
     all_techs = [x for x in caps.columns if 'transmission' not in x and 
-             'demand' not in x and 'lost' not in x and 'curtailment' not in x]
+             'demand' not in x and 'lost' not in x and 'curtailment' not in x and
+             'export' not in x and 'import' not in x]
     links = [x for x in caps.columns if 'transmission' in x]
     
     # Fixing generation, storage and conversion caps
@@ -30,7 +34,7 @@ def plan_results_to_fixedcap_override(results, filename='generic'):
         for tech in techs:
             override_dict['overrides']['fix-design-to-{}'.format(filename)]['locations'][loc+'.techs'][tech] = {}
             override_dict['overrides']['fix-design-to-{}'.format(filename)]['locations'][loc+'.techs'][tech]['constraints'] = {}
-            if caps[tech].loc[loc] > 1e-7 and caps[tech].loc[loc] != float('nan'): #filter out noise, i.e. very small numbers
+            if caps[tech].loc[loc] > 0.001 and caps[tech].loc[loc] != float('nan'): #filter out noise, i.e. very small numbers
                 feasible_cap = min(safe_oversize*caps[tech].loc[loc],caps_max[tech].loc[loc])
                 override_dict['overrides']['fix-design-to-{}'.format(filename)]['locations'][loc+'.techs'][tech]['constraints']['energy_cap_equals'] = float(feasible_cap)
             else:

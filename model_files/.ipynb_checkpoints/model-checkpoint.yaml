@@ -1,0 +1,40 @@
+import:  # Import other files from paths relative to this file, or absolute paths
+    - 'techs_and_locs/techs.yaml'  # This file specifies the model's technologies
+    - 'techs_and_locs/locations.yaml'  # This file specifies the model's locations
+    - 'techs_and_locs/links.yaml'  # This file specifies the transmission links across locations
+    - 'scenarios.yaml'  # Scenario and override group definitions
+    - 'fixed-design-cost-optimal.yaml' # Overrides to fix a given system design and only analyse the operation
+
+# Model configuration: all settings that affect the built model
+model:
+    name: Stylised Dutch power system at NUTS2 resolution
+
+    # What version of Calliope this model is intended for
+    calliope_version: 0.6.10
+
+    # Time series data path - can either be a path relative to this file, or an absolute path
+    timeseries_data_path: 'timeseries_data'
+
+    subset_time: ['2019-01-01', '2019-01-31']  # Subset of timesteps
+
+# Run configuration: all settings that affect how the built model is run
+run:
+    solver: gurobi
+    solver_options: # to speed up Gurobi's algorithm dramatically, but may be impractical when running a fixed design
+        Threads: 6
+        Method: 2 # use barrier, but do not run simplex in parallel
+        Crossover: -0 # stop after barrier, do not perform crossover
+        FeasibilityTol: 1e-3
+        OptimalityTol: 1e-4
+        BarConvTol: 1e-4
+
+    ensure_feasibility: False  # If False, wwitches off the "unmet demand" constraint, which we model as an explicit technology
+
+    bigM: 1e6  # Sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
+
+    zero_threshold: 1e-10  # Any value coming out of the backend that is smaller than this (due to floating point errors, probably) will be set to zero
+
+    mode: plan  # Choices: plan, operate
+
+    objective_options.cost_class: {monetary: 1}
+

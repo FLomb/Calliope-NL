@@ -20,7 +20,7 @@ techs:
             energy_eff: 0.57
             energy_ramping: 0.8
             lifetime: 25
-            energy_cap_max_systemwide: 10000 # MW
+            # Senergy_cap_max_systemwide: 10000 # MW
         costs:
             monetary:
                 interest_rate: 0.10
@@ -65,7 +65,7 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.10
-                energy_cap: 1139.8826 # kEUR/MW
+                energy_cap: 1769.1171 # kEUR/MW
                 om_prod: 0  # kEUR/MWh
                 om_annual_investment_fraction: 2.3741 # kEUR/MW/year         
     # wind off-shore-end
@@ -85,9 +85,9 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.10
-                energy_cap: 676.5703  # kEUR/MW
+                energy_cap: 473.1156  # kEUR/MW
                 om_prod: 0  # kEUR/MWh
-                om_annual_investment_fraction: 1.7275 # kEUR/MW/year         
+                om_annual_investment_fraction: 2.1982 # kEUR/MW/year         
     # pv farm-end
         
     # pv rooftop
@@ -121,7 +121,6 @@ techs:
             resource: 1e5 # MWh, proxy for an infinite supply
             force_resource: False
             energy_prod: True
-            resource_eff: 1
             lifetime: 40
         costs:
             monetary:
@@ -159,8 +158,8 @@ techs:
             carrier: electricity
         constraints:
             energy_cap_per_storage_cap_max: 0.25  # {own_assumptions}
-            energy_eff: 0.98  # 0.98*0.98 = 0.96 round-trip eff {IRENA2017}
-            lifetime: 22.5 
+            energy_eff: 0.9025  # 0.98*0.98 = 0.96 round-trip eff {IRENA2017}
+            lifetime: 15 
             storage_initial: 0
         costs:
             monetary:
@@ -179,14 +178,14 @@ techs:
             carrier: electricity
         constraints:
             energy_eff: 0.542  # 0.293 round-trip; in reality, it's 0.5 to convert to hydrogen and 0.5874 to convert back to electricity
-            lifetime: 15 # average between the lifetime of different components
+            lifetime: 17.5 # average between the lifetime of different components
             storage_initial: 0
         costs:
             monetary:
                 interest_rate: 0.10
-                storage_cap: 22.982  # kEUR/MWh. Calculated as: 13.5 (kEUR/MWh_H2)/0.5874 
-                energy_cap: 3069.866 # kEUR/MW. Calculated as: 1800(kEUR/MW_el_in)/0.542 + 1269.866 kEUR/MW_el_out
-                om_annual_investment_fraction: 4 # kEUR/MW/year
+                storage_cap: 54.5  # kEUR/MWh  
+                energy_cap: 4403.83 # kEUR per MW_el | from Schmidt 2019, 3575.22 $/kW * 1.34 (2015 to 2025 inflation) * 0.92 (dollar to EUR 2025) 
+                om_annual_investment_fraction: 4.5 # kEUR per MW per year (average of fuel cell and electrolyser, DEA 2025)
                 om_prod: 0
     # hydrogen-to-power storage-end
         
@@ -210,6 +209,24 @@ techs:
                 energy_cap: 175  # kEUR/MW
                 om_annual_investment_fraction: 0.015 # kEUR/MW/year
     # inter-zonal-end
+
+    # sub-sea
+    dc_subsea_transmission:  # Generic HVDC subsea transmission technology
+        essentials:
+            name: 'Transmission sub-sea electricity'
+            color: '#CF74B2'
+            parent: transmission
+            carrier: electricity
+        constraints:
+            energy_eff: 0.96
+            lifetime: 60
+        costs:
+            monetary:
+                interest_rate: 0.1
+                energy_cap: 942  # kEUR/MW
+                om_annual_investment_fraction: 0.015 # kEUR/MW/year
+    # sub-sea-end
+    
     
     
     ##------------------------------------------------------------------------------------------
