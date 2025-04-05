@@ -1,40 +1,71 @@
-import:  # Import other files from paths relative to this file, or absolute paths
-    - 'techs_and_locs/techs.yaml'  # This file specifies the model's technologies
-    - 'techs_and_locs/locations.yaml'  # This file specifies the model's locations
-    - 'techs_and_locs/links.yaml'  # This file specifies the transmission links across locations
-    - 'scenarios.yaml'  # Scenario and override group definitions
-    - 'fixed-design-cost-optimal.yaml' # Overrides to fix a given system design and only analyse the operation
+import: # Import other files from paths relative to this file, or absolute paths
+  - "techs_and_locs/techs.yaml" # This file specifies the model's technologies
+  - "techs_and_locs/nodes.yaml" # This file specifies the model's nodes
+  - "techs_and_locs/transmission.yaml" # This file specifies the model's links between nodes
+  - "scenarios.yaml" # Scenario and override group definitions
+  - "fixed-design-cost-optimal.yaml" # Override to fix the design based on previous results
 
 # Model configuration: all settings that affect the built model
-model:
-    name: Stylised Dutch power system at NUTS2 resolution
-
+config:
+  init:
+    name: NL Power System example
     # What version of Calliope this model is intended for
-    calliope_version: 0.6.10
+    calliope_version: 0.7.0
+    time_subset: ["2019-01-01", "2019-01-31"] # Subset of timesteps
+    time_resample: 3h
 
-    # Time series data path - can either be a path relative to this file, or an absolute path
-    timeseries_data_path: 'timeseries_data'
+  build:
+    ensure_feasibility: false # Switches on the "unmet demand" constraint
+    mode: plan # You can choose either "plan", or "operate"
 
-    subset_time: ['2019-01-01', '2019-01-31']  # Subset of timesteps
+  solve:
+    solver: gurobi
+    zero_threshold: 1e-10 # Any value coming out of the backend that is smaller than this (due to floating point errors, probably) will be set to zero
+    shadow_prices: ["system_balance"] # Asks the solver to return also the shadow prices for a selected constraint (e.g., "system_balance") as part of the solution. See: https://calliope.readthedocs.io/en/latest/advanced/shadow_prices/
 
-# Run configuration: all settings that affect how the built model is run
-run:
-    solver: cbc
-#    solver_options: # to speed up Gurobi's algorithm dramatically, but may be impractical when running a fixed design
-#        Threads: 6
-#        Method: 2 # use barrier, but do not run simplex in parallel
-#        Crossover: -0 # stop after barrier, do not perform crossover
-#        FeasibilityTol: 1e-3
-#        OptimalityTol: 1e-4
-#        BarConvTol: 1e-4
+    solver_options:  # These parameters allow to speed up Gurobi dramatically, but cause issues with Calligraph versions older than 0.1.1dev3
+        Threads: 6
+        Method: 2 # use barrier, but do not run simplex in parallel
+        Crossover: 0 # stop after barrier, do not perform crossover
+        FeasibilityTol: 1e-3
+        OptimalityTol: 1e-4
+        BarConvTol: 1e-4
 
-    ensure_feasibility: True  # Switches off the "unmet demand" constraint, which we model as an explicit technology
+parameters:
+  objective_cost_weights:
+    data: 1
+    index: monetary
+    dims: costs
+  # `bigM` sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
+  bigM: 1e6
 
-    bigM: 1e6  # Sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
-
-    zero_threshold: 1e-10  # Any value coming out of the backend that is smaller than this (due to floating point errors, probably) will be set to zero
-
-    mode: plan  # Choices: plan, operate
-
-    objective_options.cost_class: {monetary: 1}
+data_tables:
+  demand:
+    data: timeseries/electricity_demand_nuts2.csv
+    rows: timesteps
+    columns: [nodes]
+    add_dims:
+      techs: [demand_power]
+      parameters: sink_use_equals
+  solar:
+    data: timeseries/pv_nuts2.csv
+    rows: timesteps
+    columns: [nodes]
+    add_dims:
+      techs: [pv_farm,pv_rooftop]
+      parameters: source_use_equals
+  wind_onshore:
+    data: timeseries/wind_nuts2.csv
+    rows: timesteps
+    columns: [nodes]
+    add_dims:
+      techs: [wind_onshore]
+      parameters: source_use_equals  
+  wind_offshore:
+    data: timeseries/windoff_nuts2.csv
+    rows: timesteps
+    columns: [nodes]
+    add_dims:
+      techs: [wind_offshore]
+      parameters: source_use_equals  
 

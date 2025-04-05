@@ -1,29 +1,26 @@
+##
+# Scenarios are optional, named combinations of overrides
+##
+
+scenarios:
+    2015_weather_low_gas_price: ['weather_2015','low_gas_price']
+
+##
+# Overrides are the building blocks from which scenarios can be defined
+##
 overrides:
 
-# Temporal resolution. Can be simplified to speed up the model
-    res_2h:    
-        model.time:
-            function: resample
-            function_options.resolution: 2H
-    res_3h:    
-        model.time:
-            function: resample
-            function_options.resolution: 3H 
-    res_6h:    
-        model.time:
-            function: resample
-            function_options.resolution: 6H 
-
+# Change the gas price 
+    low_gas_price:
+        techs:
+          ccgt:
+            cost_flow_in:
+              data: 0.05 # kEUR per MWh, half of the default assumption
+              index: monetary
+              dims: costs
 
 # Change the weather year 
     weather_2015:
-        model.subset_time: ['2015-01-01', '2015-01-31']
+        config.init.time_subset: ["2015-01-01", "2015-01-31"]
 
-# Change the gas price 
-    low_gas_price:    
-        techs.ccgt.costs.monetary.om_con: 0.05 # kEUR/MWh, half of the default assumption
-
-# You can also group more than one override in a 'scenario'
-scenarios:
-    2015_weather_low_gas_price: ['weather_2015','low_gas_price']
         

@@ -1,0 +1,15 @@
+overrides:
+  fix-design-to-cost-optimal:
+    nodes:
+      NL11.techs: {}
+      NL12.techs: {}
+      NL13.techs: {}
+      NL21.techs: {}
+      NL22.techs: {}
+      NL23.techs: {}
+      NL31.techs: {}
+      NL32.techs: {}
+      NL33.techs: {}
+      NL34.techs: {}
+      NL41.techs: {}
+      NL42.techs: {}
