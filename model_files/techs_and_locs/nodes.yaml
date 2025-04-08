@@ -10,7 +10,7 @@ nodes:
     techs:
         demand_power:
         wind_onshore.flow_cap_max: 682
-        wind_offshore.flow_cap_max: 3184
+        wind_offshore.flow_cap_max: 116
         pv_farm.flow_cap_max: 2429
         pv_rooftop.flow_cap_max: 5167
         battery:
@@ -25,7 +25,7 @@ nodes:
     techs:
         demand_power:
         wind_onshore.flow_cap_max: 7583
-        wind_offshore.flow_cap_max: 380
+        wind_offshore.flow_cap_max: 13688
         pv_farm.flow_cap_max: 6271
         pv_rooftop.flow_cap_max: 7417
         battery:
@@ -82,7 +82,7 @@ nodes:
     techs:
         demand_power:
         wind_onshore.flow_cap_max: 643
-        wind_offshore.flow_cap_max: 1011
+        wind_offshore.flow_cap_max: 578
         pv_farm.flow_cap_max: 276
         pv_rooftop.flow_cap_max: 3538
         battery:
@@ -126,7 +126,7 @@ nodes:
     techs:
         demand_power:
         wind_onshore.flow_cap_max: 224
-        wind_offshore.flow_cap_max: 13243
+        wind_offshore.flow_cap_max: 1947
         pv_farm.flow_cap_max: 1652
         pv_rooftop.flow_cap_max: 23910
         battery:
@@ -141,7 +141,7 @@ nodes:
     techs:
         demand_power:
         wind_onshore.flow_cap_max: 439
-        wind_offshore.flow_cap_max: 9925
+        wind_offshore.flow_cap_max: 1614
         pv_farm.flow_cap_max: 141
         pv_rooftop.flow_cap_max: 5234
         battery:
