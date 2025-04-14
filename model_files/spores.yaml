@@ -1,0 +1,111 @@
+overrides:
+    spores_group_constraint:
+        group_constraints:
+            # high enough to not constraint the model, but not inf as that would cause the constraint to be ignored
+            systemwide_cost_max.cost_max.monetary: 1e4
+    
+    spores_run_config:
+        run.mode: spores
+
+    spores_scoring:
+            techs:
+                battery.costs.spores_score.energy_cap: 0
+                pv_farm.costs.spores_score.energy_cap: 0
+                pv_rooftop.costs.spores_score.energy_cap: 0
+                wind_offshore.costs.spores_score.energy_cap: 0
+                wind_onshore.costs.spores_score.energy_cap: 0
+                hydrogen_to_power.costs.spores_score.energy_cap: 0
+                battery.costs.spores_score.interest_rate: 1
+                pv_farm.costs.spores_score.interest_rate: 1
+                pv_rooftop.costs.spores_score.interest_rate: 1
+                wind_offshore.costs.spores_score.interest_rate: 1
+                wind_onshore.costs.spores_score.interest_rate: 1
+                hydrogen_to_power.costs.spores_score.interest_rate: 1
+                
+
+    
+    excl_wind_onshore:
+        techs.wind_onshore.costs.excl_score.energy_cap: 1
+        techs.wind_onshore.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/min_wind/spore_{}.nc"
+
+    excl_wind_offshore:
+        techs.wind_offshore.costs.excl_score.energy_cap: 1
+        techs.wind_offshore.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/min_windoff/spore_{}.nc"
+
+    excl_pv_farm:
+        techs.pv_farm.costs.excl_score.energy_cap: 1
+        techs.pv_farm.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/min_pvfarm/spore_{}.nc"
+
+    excl_pv_rooftop:
+        techs.pv_rooftop.costs.excl_score.energy_cap: 1
+        techs.pv_rooftop.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/min_pvroof/spore_{}.nc"
+
+    excl_battery:
+        techs.battery.costs.excl_score.energy_cap: 1
+        techs.battery.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/min_bat/spore_{}.nc"
+
+    excl_hydrogen:
+        techs.hydrogen_to_power.costs.excl_score.energy_cap: 1
+        techs.hydrogen_to_power.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/min_p2g/spore_{}.nc"
+
+    excl_transmission:
+        hvac_transmission.costs.spores_score: {energy_cap: 0, interest_rate: 1}
+        dc_subsea_transmission.costs.spores_score: {energy_cap: 0, interest_rate: 1}
+
+        hvac_transmission.costs.excl_score: {energy_cap: 1, interest_rate: 1}
+        dc_subsea_transmission.costs.excl_score: {energy_cap: 1, interest_rate: 1}
+        run.spores_options.save_per_spore_path: "../../spore_results/min_trn/spore_{}.nc"
+
+    children_spores:
+        run.spores_options.spores_number: 10
+    
+    max_wind_onshore:
+        techs.wind_onshore.costs.excl_score.energy_cap: 1
+        techs.wind_onshore.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/max_wind/spore_{}.nc"
+
+    max_wind_offshore:
+        techs.wind_offshore.costs.excl_score.energy_cap: 1
+        techs.wind_offshore.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/max_windoff/spore_{}.nc"
+
+    max_pv_farm:
+        techs.pv_farm.costs.excl_score.energy_cap: 1
+        techs.pv_farm.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/max_pvfarm/spore_{}.nc"
+
+    max_pv_rooftop:
+        techs.pv_rooftop.costs.excl_score.energy_cap: 1
+        techs.pv_rooftop.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/max_pvroof/spore_{}.nc"
+
+    max_battery:
+        techs.battery.costs.excl_score.energy_cap: 1
+        techs.battery.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/max_bat/spore_{}.nc"
+
+    max_hydrogen:
+        techs.hydrogen_to_power.costs.excl_score.energy_cap: 1
+        techs.hydrogen_to_power.costs.excl_score.interest_rate: 1
+        run.spores_options.save_per_spore_path: "../../spore_results/max_p2g/spore_{}.nc"
+    
+    max_transmission:
+        hvac_transmission.costs.spores_score: {energy_cap: 0, interest_rate: 1}
+        dc_subsea_transmission.costs.spores_score: {energy_cap: 0, interest_rate: 1}
+
+        hvac_transmission.costs.excl_score: {energy_cap: 1, interest_rate: 1}
+        dc_subsea_transmission.costs.excl_score: {energy_cap: 1, interest_rate: 1}
+        run.spores_options.save_per_spore_path: "../../spore_results/max_trn/spore_{}.nc"
+
+
+    max_mode:    
+        run.spores_options.objective_cost_class: {'spores_score': 1, 'monetary': 0, 'excl_score': -1}
+    excl_mode: 
+        run.spores_options.objective_cost_class: {'spores_score': 1, 'monetary': 0, 'excl_score': 1}
+

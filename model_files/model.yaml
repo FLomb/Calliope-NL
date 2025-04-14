@@ -28,6 +28,16 @@ run:
         OptimalityTol: 1e-4
         BarConvTol: 1e-4
 
+    spores_options:
+        score_cost_class: 'spores_score'
+        slack_cost_group: 'systemwide_cost_max'
+        slack: 0.1
+        spores_number: 10
+        scoring_method: integer          
+        save_per_spore: true
+        save_per_spore_path: "../spore_results/spore_run_{}.nc"
+        objective_cost_class: {spores_score: 1, excl_score: 0, monetary: 0}
+
     ensure_feasibility: False  # If False, wwitches off the "unmet demand" constraint, which we model as an explicit technology
 
     bigM: 1e6  # Sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
