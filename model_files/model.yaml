@@ -4,13 +4,13 @@ import:  # Import other files from paths relative to this file, or absolute path
     - 'techs_and_locs/links.yaml'  # This file specifies the transmission links across locations
     - 'scenarios.yaml'  # Scenario and override group definitions
     - 'fixed-design-cost-optimal.yaml' # Overrides to fix a given system design and only analyse the operation
-
+    - 'spores.yaml'
 # Model configuration: all settings that affect the built model
 model:
     name: Stylised Dutch power system at NUTS2 resolution
 
     # What version of Calliope this model is intended for
-    calliope_version: 0.6.10
+    calliope_version: 0.6.8
 
     # Time series data path - can either be a path relative to this file, or an absolute path
     timeseries_data_path: 'timeseries_data'
@@ -36,7 +36,7 @@ run:
         scoring_method: integer          
         save_per_spore: true
         save_per_spore_path: "../spore_results/spore_run_{}.nc"
-        objective_cost_class: {spores_score: 1, excl_score: 0, monetary: 0}
+        objective_cost_class: {spores_score: 1, monetary: 0} # excl_score: 0
 
     ensure_feasibility: False  # If False, wwitches off the "unmet demand" constraint, which we model as an explicit technology
 
