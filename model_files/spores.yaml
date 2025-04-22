@@ -21,7 +21,10 @@ overrides:
                 wind_offshore.costs.spores_score.interest_rate: 1
                 wind_onshore.costs.spores_score.interest_rate: 1
                 hydrogen_to_power.costs.spores_score.interest_rate: 1
-                
+                ccgt.costs.spores_score.energy_cap: 0
+                ccgt.costs.spores_score.interest_rate: 1
+                hvac_transmission.costs.spores_score.energy_cap: 0
+                hvac_transmission.costs.spores_score.interest_rate: 1
 
     
     excl_wind_onshore:
