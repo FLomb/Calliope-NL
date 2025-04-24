@@ -16,10 +16,16 @@ model:
     # Time series data path - can either be a path relative to this file, or an absolute path
     timeseries_data_path: 'timeseries_data'
 
-    subset_time: ['2019-01-01', '2019-01-02']  # Subset of timesteps
+    subset_time: ['2019-01-01', '2019-01-05']  # Subset of timesteps
 
 # Run configuration: all settings that affect how the built model is run
 run:
+
+    #objective_options: {
+    #    cost_class: {'monetary': 1, 'spores_score': 0, 'excl_score': 0},
+    #    sense: minimize
+    #}
+    
     solver: gurobi
     solver_options: # to speed up Gurobi's algorithm dramatically, but may be impractical when running a fixed design
         Threads: 6
@@ -39,7 +45,7 @@ run:
         save_per_spore_path: "../spore_results/spore_run_{}.nc"
         objective_cost_class: {spores_score: 1, monetary: 0} # excl_score: 0
 
-    ensure_feasibility: False  # If False, wwitches off the "unmet demand" constraint, which we model as an explicit technology
+    ensure_feasibility: True  # If False, switches off the "unmet demand" constraint, which we model as an explicit technology
 
     bigM: 1e6  # Sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
 

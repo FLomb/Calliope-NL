@@ -2,7 +2,7 @@ overrides:
     spores_group_constraint:
         group_constraints:
             # high enough to not constraint the model, but not inf as that would cause the constraint to be ignored
-            systemwide_cost_max.cost_max.monetary: 1e6
+            systemwide_cost_max.cost_max.monetary: 10e8
     
     spores_run_config:
         run.mode: spores
