@@ -2,7 +2,7 @@ overrides:
     spores_group_constraint:
         group_constraints:
             # high enough to not constraint the model, but not inf as that would cause the constraint to be ignored
-            systemwide_cost_max.cost_max.monetary: 1e4
+            systemwide_cost_max.cost_max.monetary: 1e6
     
     spores_run_config:
         run.mode: spores
@@ -66,7 +66,7 @@ overrides:
         run.spores_options.save_per_spore_path: "../../spore_results/min_trn/spore_{}.nc"
 
     children_spores:
-        run.spores_options.spores_number: 10
+        run.spores_options.spores_number: 3
     
     max_wind_onshore:
         techs.wind_onshore.costs.excl_score.energy_cap: 1
