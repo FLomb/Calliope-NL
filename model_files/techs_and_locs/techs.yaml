@@ -4,9 +4,10 @@
 
 templates:
     interest_rate_setter:
-      data: 0.1  # average wind onshore WACC OECD from [@Steffen:2019]
-      index: monetary
-      dims: costs
+      cost_interest_rate:
+        data: 0.1  # average wind onshore WACC OECD from [@Steffen:2019]
+        index: monetary
+        dims: costs
 
 techs:
 
