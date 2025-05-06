@@ -17,6 +17,7 @@ config:
   build:
     ensure_feasibility: false # Switches on the "unmet demand" constraint
     mode: plan # You can choose either "plan", or "operate"
+    add_math: ["custom_math/import_export_share.yaml"]
 
   solve:
     solver: gurobi

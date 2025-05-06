@@ -1,0 +1,17 @@
+constraints:
+  max_import_share:
+    description: Fix the maximum share of import_power compared to total generation
+    equations:
+      - expression: sum(flow_out[carriers=power, techs=import_power], over=[timesteps,nodes]) <= 0.2 * sum(flow_out[carriers=power, techs=$gen_techs], over=[techs, timesteps, nodes])
+    slices:
+        gen_techs:
+            - expression: "[wind_onshore, wind_offshore, pv_rooftop, pv_farm, ccgt import_power]"
+
+  max_export_share:
+    description: Fix the maximum share of export_power compared to total generation
+    equations:
+      - expression: sum(flow_in[carriers=power, techs=export_power], over=[timesteps,nodes]) <= 0.2 * sum(flow_out[carriers=power, techs=$gen_techs], over=[techs, timesteps, nodes])
+    slices:
+        gen_techs:
+            - expression: "[wind_onshore, wind_offshore, pv_rooftop, pv_farm, ccgt import_power]"
+
