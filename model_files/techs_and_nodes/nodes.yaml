@@ -1,0 +1,449 @@
+nodes:
+  NL111:
+    latitude: 53.11592249851456
+    longitude: 6.998080306752395
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 1506.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 3986.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL112:
+    latitude: 53.34958767448042
+    longitude: 6.807327198083686
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 700.1236868186325
+      wind_offshore:
+        flow_cap_max: 1.0
+      solar_pv:
+        flow_cap_max: 1276.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL113:
+    latitude: 53.29782236205041
+    longitude: 6.453289238399541
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 2225.0
+      wind_offshore:
+        flow_cap_max: 115.0
+      solar_pv:
+        flow_cap_max: 5972.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL124_1:
+    latitude: 53.197727180887135
+    longitude: 5.7292304186468765
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 3904.0
+      wind_offshore:
+        flow_cap_max: 18750.0
+      solar_pv:
+        flow_cap_max: 10327.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL126:
+    latitude: 53.00952002261066
+    longitude: 6.093414324653314
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 2003.0
+      wind_offshore:
+        flow_cap_max: 1.0
+      solar_pv:
+        flow_cap_max: 4267.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL131_2:
+    latitude: 52.86136400303993
+    longitude: 6.694063872939853
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 4550.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 10807.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL211_1:
+    latitude: 52.519802615238405
+    longitude: 6.271273778956525
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 3310.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 7465.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL213:
+    latitude: 52.30627558270476
+    longitude: 6.770464006197027
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 2462.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 5083.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL221_2:
+    latitude: 52.21663904907368
+    longitude: 5.805424273915929
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 3011.0
+      wind_offshore:
+        flow_cap_max: 1.0
+      solar_pv:
+        flow_cap_max: 11032.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL225:
+    latitude: 52.02668206225724
+    longitude: 6.431726190206732
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 3158.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 5986.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL230:
+    latitude: 52.49744296233376
+    longitude: 5.654125518846855
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 3075.0
+      wind_offshore:
+        flow_cap_max: 578.0
+      solar_pv:
+        flow_cap_max: 6197.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL310:
+    latitude: 52.08504141878318
+    longitude: 5.28082550768016
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 1399.0
+      wind_offshore:
+        flow_cap_max: 2.0
+      solar_pv:
+        flow_cap_max: 5782.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL321_2:
+    latitude: 52.33891209041668
+    longitude: 4.961966332537762
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 1947.0
+      wind_offshore:
+        flow_cap_max: 11.0
+      solar_pv:
+        flow_cap_max: 8498.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL323_3:
+    latitude: 52.60880344126226
+    longitude: 4.748993767638062
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 473.0
+      wind_offshore:
+        flow_cap_max: 35362.0
+      solar_pv:
+        flow_cap_max: 2661.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL332_3:
+    latitude: 52.07664063425487
+    longitude: 4.586946029246174
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 1945.0
+      wind_offshore:
+        flow_cap_max: 1673.0
+      solar_pv:
+        flow_cap_max: 10464.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL333:
+    latitude: 51.97515101924442
+    longitude: 4.282248847285375
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 109.0
+      wind_offshore:
+        flow_cap_max: 274.0
+      solar_pv:
+        flow_cap_max: 718.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL33A:
+    latitude: 51.87873572345163
+    longitude: 4.86970221412701
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 390.0
+      wind_offshore:
+        flow_cap_max: 4.0
+      solar_pv:
+        flow_cap_max: 2043.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL341_1:
+    latitude: 51.46975038252344
+    longitude: 3.824547798305571
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 2930.0
+      wind_offshore:
+        flow_cap_max: 1612.0
+      solar_pv:
+        flow_cap_max: 8008.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL411_1:
+    latitude: 51.59655307055407
+    longitude: 4.922020175792532
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 2750.0
+      wind_offshore:
+        flow_cap_max: 6.0
+      solar_pv:
+        flow_cap_max: 8830.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL413:
+    latitude: 51.68828966868839
+    longitude: 5.531868061337738
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 1710.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 5882.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL414:
+    latitude: 51.40871766628259
+    longitude: 5.390236761518083
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 1697.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 5172.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  NL421_2:
+    latitude: 51.253987802907695
+    longitude: 5.910232449867963
+    techs:
+      demand_power: 
+      wind_onshore:
+        flow_cap_max: 2107.0
+      wind_offshore:
+        flow_cap_max: 0.0
+      solar_pv:
+        flow_cap_max: 8787.0
+      battery: 
+      hydrogen_power_storage: 
+      ccgt: 
+      bioenergy: 
+      coal: 
+      nuclear: 
+      curtailment: 
+      lost_load: 
+  BE:
+    latitude: 50.78683755629687
+    longitude: 4.67251587904317
+    techs:
+      import_power: 
+      export_power: 
+  DE:
+    latitude: 50.8591531312447
+    longitude: 9.268013415061866
+    techs:
+      import_power: 
+      export_power: 
+  DK:
+    latitude: 56.08453548320821
+    longitude: 9.129465405033374
+    techs:
+      import_power: 
+      export_power: 
+  GB:
+    latitude: 52.67068341956855
+    longitude: -1.5297851042404988
+    techs:
+      import_power: 
+      export_power: 
+  NO:
+    latitude: 60.97521751972631
+    longitude: 9.94314027548092
+    techs:
+      import_power: 
+      export_power: 

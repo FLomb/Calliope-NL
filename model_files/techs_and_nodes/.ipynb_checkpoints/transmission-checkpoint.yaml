@@ -1,0 +1,115 @@
+##
+# TRANSMISSION BETWEEN NODES
+##
+
+templates:
+  hv_transmission:
+    name: "High-voltage generic power transmission"
+    color: "#6783E3"
+    carrier_in: power
+    carrier_out: power
+    base_tech: transmission
+    flow_out_eff: 0.85
+    lifetime: 25
+    template: interest_rate_setter
+
+techs:
+  NL11_to_NL12:
+    template: hv_transmission
+    from: NL11
+    to: NL12
+    distance: 78.08059088268635
+    flow_cap_min: 0.6882
+    flow_cap_max: 3.4401 # 5x current capacity for each link
+  NL11_to_NL13:
+    template: hv_transmission
+    from: NL11
+    to: NL13
+    distance: 51.40669619092387
+    flow_cap_min: 3.0655
+    flow_cap_max: 15.3276
+  NL31_to_NL33:
+    template: hv_transmission
+    from: NL31
+    to: NL33
+    distance: 54.0333446482031
+    flow_cap_min: 0.2377
+    flow_cap_max: 1.1886
+  NL32_to_NL33:
+    template: hv_transmission
+    from: NL32
+    to: NL33
+    distance: 62.54522684034896
+    flow_cap_min: 2.3773
+    flow_cap_max: 11.8867
+  NL33_to_NL41:
+    template: hv_transmission
+    from: NL33
+    to: NL41
+    distance: 79.05131602490407
+    flow_cap_min: 2.3773
+    flow_cap_max: 11.8867
+  NL34_to_NL41:
+    template: hv_transmission
+    from: NL34
+    to: NL41
+    distance: 81.91534737849409
+    flow_cap_min: 2.3773
+    flow_cap_max: 11.8867
+  NL41_to_NL42:
+    template: hv_transmission
+    from: NL41
+    to: NL42
+    distance: 88.7810048549968
+    flow_cap_min: 4.7547
+    flow_cap_max: 23.7734
+  NL12_to_NL23:
+    template: hv_transmission
+    from: NL12
+    to: NL23
+    distance: 77.01279250805582
+    flow_cap_min: 0.6882
+    flow_cap_max: 3.4401
+  NL13_to_NL21:
+    template: hv_transmission
+    from: NL13
+    to: NL21
+    distance: 57.68592103711268
+    flow_cap_min: 3.0655
+    flow_cap_max: 15.3276
+  NL21_to_NL22:
+    template: hv_transmission
+    from: NL21
+    to: NL22
+    distance: 74.3546324021931
+    flow_cap_min: 2.3773
+    flow_cap_max: 11.8867
+  NL21_to_NL23:
+    template: hv_transmission
+    from: NL21
+    to: NL23
+    distance: 70.1574152900598
+    flow_cap_min: 3.0655
+    flow_cap_max: 15.3276
+  NL22_to_NL41:
+    template: hv_transmission
+    from: NL22
+    to: NL41
+    distance: 91.64766157833785
+    flow_cap_min: 2.3773
+    flow_cap_max: 11.8867
+  NL23_to_NL32:
+    template: hv_transmission
+    from: NL23
+    to: NL32
+    distance: 84.8212339513288
+    flow_cap_min: 3.3962
+    flow_cap_max: 16.9811
+  NL31_to_NL32:
+    template: hv_transmission
+    from: NL31
+    to: NL32
+    distance: 34.96977818838089
+    flow_cap_min: 2.3773
+    flow_cap_max: 11.8867
+  

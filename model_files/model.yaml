@@ -1,9 +1,11 @@
 import: # Import other files from paths relative to this file, or absolute paths
-  - "techs_and_locs/techs.yaml" # This file specifies the model's technologies
-  - "techs_and_locs/nodes.yaml" # This file specifies the model's nodes
-  - "techs_and_locs/transmission.yaml" # This file specifies the model's links between nodes
-  - "scenarios.yaml" # Scenario and override group definitions
-  - "fixed-design-cost-optimal.yaml" # Override to fix the design based on previous results
+  - "techs_and_nodes/techs.yaml" # This file specifies the model's technologies
+  - "techs_and_nodes/nodes.yaml" # This file specifies the model's nodes
+  - "techs_and_nodes/transmission.yaml" # This file specifies the model's links between nodes
+  - "scenarios/spores.yaml" # SPORES scenarios
+  - "scenarios/brownfield_caps.yaml" # Scenario and override group definitions
+  - "scenarios/frozen_caps.yaml" # Scenario and override group definitions
+  - "scenarios/fixed-design-cost-optimal.yaml" # Override to fix the design based on previous results
 
 # Model configuration: all settings that affect the built model
 config:
@@ -13,11 +15,13 @@ config:
     calliope_version: 0.7.0
     time_subset: ["2019-01-01", "2019-01-31"] # Subset of timesteps
     time_resample: 3h
+    broadcast_param_data: false
 
   build:
     ensure_feasibility: false # Switches on the "unmet demand" constraint
     mode: plan # You can choose either "plan", or "operate"
     add_math: ["custom_math/import_export_share.yaml"]
+
 
   solve:
     solver: gurobi
@@ -34,36 +38,36 @@ config:
 
 parameters:
   objective_cost_weights:
-    data: 1
-    index: monetary
+    data: [1, 0]
+    index: [monetary, co2]
     dims: costs
   # `bigM` sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
   bigM: 1e6
 
 data_tables:
   demand:
-    data: timeseries/electricity_demand_nuts2.csv
+    data: timeseries/demand_power_nuts3_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
       techs: [demand_power]
       parameters: sink_use_equals
   solar:
-    data: timeseries/pv_nuts2.csv
+    data: timeseries/pv_nuts3_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
-      techs: [pv_farm,pv_rooftop]
+      techs: [solar_pv]
       parameters: source_use_equals
   wind_onshore:
-    data: timeseries/wind_nuts2.csv
+    data: timeseries/windon_nuts3_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
       techs: [wind_onshore]
       parameters: source_use_equals  
   wind_offshore:
-    data: timeseries/windoff_nuts2.csv
+    data: timeseries/windoff_nuts3_2019.csv
     rows: timesteps
     columns: [nodes]
     add_dims:
