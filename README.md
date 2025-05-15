@@ -5,7 +5,11 @@ A model of the Dutch power system with data at both simplified-NUTS3 (22 nodes) 
 
 ## Requirements
 The model is built on the Python-based open-source energy modelling framework Calliope, version 0.7.0.dev6. 
-To be ready to run the model, we recommend following the [instructions for installing Calliope](https://calliope.readthedocs.io/en/v0.7.0.dev5/installation/) first.
+To be ready to run the model, we recommend installing a `Calliope-NL` environment from the `environment.yml` file in this repository. Simply run the command below from a terminal in the same directory as the file:
+
+```
+conda env create -f requirements.yml
+```
 
 ## Overview
 The repository includes a Jupyter notebook (`example_design_optimisation.ipynb`) to walk new users through the most typical use of the model, namely the generation of cost-optimal system design plans, including illustrative analysis and visualisation options. The visualisation functions are imported from the file `plotting_functionalities.py`. 
