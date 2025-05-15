@@ -47,7 +47,6 @@ TU Delft, Faculty of Technology, Policy and Management </br>
 
 Luca Lazzari </br>
 TU Delft, Faculty of Technology, Policy and Management </br>
-TU Delft, Faculty of Technology, Policy and Management </br>
 
 Wouter van der Veen </br>
 TU Delft, Faculty of Technology, Policy and Management </br>
