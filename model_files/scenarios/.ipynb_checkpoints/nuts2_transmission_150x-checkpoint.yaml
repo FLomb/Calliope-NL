@@ -1,0 +1,171 @@
+overrides:
+  transmission_150x:        
+        techs:
+          BE_to_NL34:
+            template: hv_transmission
+            distance: 96.26632797246025
+            link_from: BE
+            link_to: NL34
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          BE_to_NL42:
+            template: hv_transmission
+            distance: 100.96363028747125
+            link_from: BE
+            link_to: NL42
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL11_to_NL12:
+            template: hv_transmission
+            distance: 63.84375109404878
+            link_from: NL11
+            link_to: NL12
+            flow_cap_min: 1376.3568537265326
+            flow_cap_max: 1376.3568537265326
+          NL11_to_NL13:
+            template: hv_transmission
+            distance: 49.45239257856203
+            link_from: NL11
+            link_to: NL13
+            flow_cap_min: 688.1784268632663
+            flow_cap_max: 688.1784268632663
+          NL11_to_NL21:
+            template: hv_transmission
+            distance: 99.1381762116204
+            link_from: NL11
+            link_to: NL21
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL12_to_NL23:
+            template: hv_transmission
+            distance: 65.44491992139726
+            link_from: NL12
+            link_to: NL23
+            flow_cap_min: 688.1784268632663
+            flow_cap_max: 688.1784268632663
+          NL13_to_NL21:
+            template: hv_transmission
+            distance: 51.65060710387037
+            link_from: NL13
+            link_to: NL21
+            flow_cap_min: 688.1784268632663
+            flow_cap_max: 688.1784268632663
+          NL21_to_NL22:
+            template: hv_transmission
+            distance: 51.97703497237144
+            link_from: NL21
+            link_to: NL22
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL21_to_NL23:
+            template: hv_transmission
+            distance: 52.40971601434824
+            link_from: NL21
+            link_to: NL23
+            flow_cap_min: 3065.522083300005
+            flow_cap_max: 3065.522083300005
+          NL22_to_NL41:
+            template: hv_transmission
+            distance: 67.70386339399265
+            link_from: NL22
+            link_to: NL41
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL23_to_NL32:
+            template: hv_transmission
+            distance: 58.59286848213063
+            link_from: NL23
+            link_to: NL32
+            flow_cap_min: 2377.3469999999998
+            flow_cap_max: 2377.3469999999998
+          NL31_to_NL32:
+            template: hv_transmission
+            distance: 77.62064679720767
+            link_from: NL31
+            link_to: NL32
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL31_to_NL33:
+            template: hv_transmission
+            distance: 49.40480483014042
+            link_from: NL31
+            link_to: NL33
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL32_to_NL33:
+            template: hv_transmission
+            distance: 78.10029800818666
+            link_from: NL32
+            link_to: NL33
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL33_to_NL41:
+            template: hv_transmission
+            distance: 86.34890571511127
+            link_from: NL33
+            link_to: NL41
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL34_to_NL41:
+            template: hv_transmission
+            distance: 114.1303072202553
+            link_from: NL34
+            link_to: NL41
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          NL41_to_NL42:
+            template: hv_transmission
+            distance: 43.42480730943384
+            link_from: NL41
+            link_to: NL42
+            flow_cap_min: 4754.687312873477
+            flow_cap_max: 4754.687312873477
+          DE_to_NL11:
+            template: hv_transmission
+            distance: 324.6408086462899
+            link_from: DE
+            link_to: NL11
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          DE_to_NL21:
+            template: hv_transmission
+            distance: 262.76793594276285
+            link_from: DE
+            link_to: NL21
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          DE_to_NL22:
+            template: hv_transmission
+            distance: 268.0940269973389
+            link_from: DE
+            link_to: NL22
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          DE_to_NL42:
+            template: hv_transmission
+            distance: 238.73046889259751
+            link_from: DE
+            link_to: NL42
+            flow_cap_min: 2377.3436564367385
+            flow_cap_max: 2377.3436564367385
+          GB_to_NL33:
+            template: subsea_transmission
+            distance: 418.6696010994116
+            link_from: GB
+            link_to: NL33
+            flow_cap_min: 1000.0
+            flow_cap_max: 1000.0
+          DK_to_NL11:
+            template: subsea_transmission
+            distance: 346.8515980355611
+            link_from: DK
+            link_to: NL11
+            flow_cap_min: 700.0
+            flow_cap_max: 700.0
+          NL11_to_NO:
+            template: subsea_transmission
+            distance: 875.0083770328511
+            link_from: NL11
+            link_to: NO
+            flow_cap_min: 700.0
+            flow_cap_max: 700.0

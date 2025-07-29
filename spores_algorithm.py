@@ -37,7 +37,7 @@ def run_spores(number_of_spores, cost_optimal_model, scoring_method='integer'):
             pass
     
         # Calculate weights based on a scoring method
-        spores_score = score_via_method(scoring_method, model.results, model.backend)
+        spores_score = score_via_method(scoring_method, model)
         # Assign a new score based on the calculated penalties
         model.backend.update_parameter(
             "cost_flow_cap", spores_score.reindex_like(model.inputs.cost_flow_cap)
@@ -70,10 +70,11 @@ def run_spores(number_of_spores, cost_optimal_model, scoring_method='integer'):
 ###--------------------------------------------
 
 
-def score_via_method(scoring_method, results, backend):
+def score_via_method(scoring_method, model):
 
     scoring_method=scoring_method
-    results=results
+    results=model.results
+    backend=model.backend
     
     def scoring_integer(results, backend):
         # Filter for technologies of interest
@@ -93,6 +94,7 @@ def score_via_method(scoring_method, results, backend):
         new_score.rename("cost_flow_cap")
         new_score = new_score.expand_dims(costs=["spores_score"]).copy()
         new_score = new_score.sum("carriers")
+        
         # Extract the existing cost parameters from the backend
         all_costs = backend.get_parameter("cost_flow_cap", as_backend_objs=False)
         try:
@@ -121,6 +123,7 @@ def score_via_method(scoring_method, results, backend):
         new_score.rename("cost_flow_cap")
         new_score = new_score.expand_dims(costs=["spores_score"]).copy()
         new_score = new_score.sum("carriers")
+        
         # Extract the existing cost parameters from the backend
         all_costs = backend.get_parameter("cost_flow_cap", as_backend_objs=False)
         try:
@@ -133,11 +136,45 @@ def score_via_method(scoring_method, results, backend):
     
         return new_all_costs
 
+    def scoring_relative_deployment(results, backend):
+
+        # Get bigM or max limit for any tech as 'realistic infinite' limit
+        bigM = float(min(backend.inputs.bigM,backend.inputs['flow_cap_max'].max()))
+        # Filter for technologies of interest and that exist at a given node
+        existence = backend.inputs.definition_matrix
+        spores_techs = backend.inputs["spores_tracker"].notnull()
+        # Look at capacity deployment in the previous iteration and calculate the relative deployment
+        previous_cap = results.flow_cap 
+        potential_max_cap = backend.inputs['flow_cap_max']
+        potential_max_cap = potential_max_cap.fillna(float(bigM))  * existence.astype(float) * spores_techs.astype(float)
+        relative_cap = previous_cap / potential_max_cap
+        
+        # Assign a penalty (score) based on the relative deployment
+        new_score = relative_cap.copy()
+        # Transform the score into a "cost" parameter
+        new_score.rename("cost_flow_cap")
+        new_score = new_score.expand_dims(costs=["spores_score"]).copy()
+        new_score = new_score.sum("carriers")
+        
+        # Extract the existing cost parameters from the backend
+        all_costs = backend.get_parameter("cost_flow_cap", as_backend_objs=False)
+        try:
+            all_costs = all_costs.expand_dims(nodes=results.nodes).copy()
+        except:
+            pass
+        # Create a new version of the cost parameters by adding up the calculated scores
+        new_all_costs = all_costs
+        new_all_costs.loc[{"costs":"spores_score"}] += new_score.loc[{"costs":"spores_score"}]
+    
+        return new_all_costs
+
+
+
     allowed_methods = {
             'integer': scoring_integer,
-            # 'relative_deployment': _cap_loc_score_relative_deployment,
+            'relative_deployment': scoring_relative_deployment,
             'random':scoring_random,
-            # 'evolving_average': _cap_loc_score_evolving_average
+            # 'evolving_average': scoring_evolving_average
             }
 
     return(allowed_methods[scoring_method](results, backend))

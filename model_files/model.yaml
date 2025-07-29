@@ -6,6 +6,9 @@ import: # Import other files from paths relative to this file, or absolute paths
   - "scenarios/brownfield_caps.yaml" # Scenario and override group definitions
   - "scenarios/frozen_caps.yaml" # Scenario and override group definitions
   - "scenarios/fixed-design-cost-optimal.yaml" # Override to fix the design based on previous results
+  - "scenarios/transmission_150x.yaml" # Expand transmission 1.5x
+  - "scenarios/demand_2030.yaml" # Scale-up demand to 2030 forecasts
+
 
 # Model configuration: all settings that affect the built model
 config:
@@ -13,7 +16,7 @@ config:
     name: NL Power System example
     # What version of Calliope this model is intended for
     calliope_version: 0.7.0
-    time_subset: ["2019-01-01", "2019-01-31"] # Subset of timesteps
+    time_subset: ["2019-01-01", "2019-12-31"] # Subset of timesteps
     time_resample: 3h
     broadcast_param_data: false
 

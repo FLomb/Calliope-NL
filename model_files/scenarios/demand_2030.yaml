@@ -1,0 +1,10 @@
+overrides:
+    demand_2030:
+        data_tables:
+          demand:
+            data: timeseries/demand_power_nuts3_2019_2030.csv
+            rows: timesteps
+            columns: [nodes]
+            add_dims:
+              techs: [demand_power]
+              parameters: sink_use_equals

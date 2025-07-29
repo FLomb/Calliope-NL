@@ -9,8 +9,12 @@ overrides:
             data: [0, 0, 1]
             index: ["monetary", "co2", "spores_score"]
             dims: costs
-          spores_slack: 0.2
+          spores_slack: 0.1
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
+          # spores_cost_class:
+          #   data: [false, false, true]
+          #   index: ["monetary", "co2", "spores_score"]
+          #   dims: costs
         config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
 
     
@@ -23,7 +27,7 @@ overrides:
         templates:    
               cost_dim_setter:
                 cost_interest_rate:
-                  data: [0.10, 0.10, 0]
+                  data: [0.10, 0.10, 1]
                   index: ["monetary", "co2", "spores_score"]
                   dims: costs
         techs:
@@ -56,77 +60,3 @@ overrides:
                 cost_flow_cap: {'data': [4403.83,0,0], 'index': ['monetary','co2','spores_score'], 'dims': 'costs'}
 
 
-###
-# ---- Overrides for SPORES runs that 'intensify' system featurs of interest ----
-###
-
-    spores_mode_intensify_max:
-        config.init.broadcast_param_data: false
-        parameters:
-          objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
-            data: [1, 0, 0, 0]
-            index: ["monetary", "co2", "spores_score", "intensification"]
-          spores_objective_cost_weights: # defines how to change the model objective once entering the SPORES loop
-            data: [0, 0, 1, -1000]
-            index: ["monetary", "co2", "spores_score", "intensification"]
-            dims: costs
-          spores_slack: 0.5
-          spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
-
-    spores_mode_intensify_min:
-        config.init.broadcast_param_data: false
-        parameters:
-          objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
-            data: [1, 0, 0, 0]
-            index: ["monetary", "co2", "spores_score", "intensification"]
-          spores_objective_cost_weights: # defines how to change the model objective once entering the SPORES loop
-            data: [0, 0, 1, 1000]
-            index: ["monetary", "co2", "spores_score", "intensification"]
-            dims: costs
-          spores_slack: 0.5
-          spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
-
-    define_intensified_and_spores_techs:    
-        templates:    
-              cost_dim_setter:
-                cost_interest_rate:
-                  data: [0.10, 0.10, 0, 0]
-                  index: ["monetary", "co2", "spores_score", "intensification"]
-                  dims: costs
-
-        parameters:
-          spores_tracker: # defines which techs are going to be subject to the SPORES weighting process
-            data: [true,true,true,true,true,true,true,true,true]
-            index: [solar_pv, wind_onshore, wind_offshore, ccgt, bioenergy, coal, nuclear, battery, hydrogen_power_storage]
-            dims: techs
-
-        techs:
-            solar_pv:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [676.5703,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            wind_onshore:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [1139.8826,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            wind_offshore:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [1769.1171,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            ccgt:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [904.7795,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            bioenergy:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [2337.6116,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            coal:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [3827.1629,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            nuclear:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [8594.1354,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            battery:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [885,0,0,1000], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}
-            hydrogen_power_storage:
-                template: cost_dim_setter
-                cost_flow_cap: {'data': [4403.83,0,0,0], 'index': ['monetary','co2','spores_score','intensification'], 'dims': 'costs'}

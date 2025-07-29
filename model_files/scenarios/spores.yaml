@@ -70,7 +70,7 @@ overrides:
             data: [0, 0, 1, -1000]
             index: ["monetary", "co2", "spores_score", "intensification"]
             dims: costs
-          spores_slack: 0.5
+          spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
         config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
 
@@ -84,7 +84,7 @@ overrides:
             data: [0, 0, 1, 1000]
             index: ["monetary", "co2", "spores_score", "intensification"]
             dims: costs
-          spores_slack: 0.5
+          spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
         config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
 

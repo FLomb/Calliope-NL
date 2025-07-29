@@ -6,6 +6,8 @@ import: # Import other files from paths relative to this file, or absolute paths
   - "scenarios/nuts2_brownfield_caps.yaml" # Scenario and override group definitions
   - "scenarios/nuts2_frozen_caps.yaml" # Scenario and override group definitions
   - "scenarios/fixed-design-cost-optimal-nuts2.yaml" # Override to fix the design based on previous results
+  - "scenarios/nuts2_transmission_150x.yaml" # Expand transmission 1.5x
+  - "scenarios/nuts2_demand_2030.yaml" # Scale-up demand to 2030 forecasts
 
 # Model configuration: all settings that affect the built model
 config:

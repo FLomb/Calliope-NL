@@ -107,7 +107,7 @@ techs:
     flow_out_eff: 0.468
     flow_ramping: 0.8
     lifetime: 30
-    flow_cap_max_systemwide: 12000 # about the 12 GW of currently installed CHP capacity
+    flow_cap_max_systemwide: 2200 # about the 10x the currently installed capacity
     cost_flow_cap:
       data: 2337.6116  # kEUR per MW
       index: monetary
@@ -135,6 +135,7 @@ techs:
     flow_out_eff: 0.356
     flow_ramping: 0.8
     lifetime: 40
+    flow_cap_max_systemwide: 0 # Coal phase-out in 2030
     cost_flow_cap:
       data: 3827.1629  # kEUR per MW
       index: monetary
