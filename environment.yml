@@ -4,7 +4,9 @@ channels:
     - gurobi
 dependencies:
     - python=3.12
-    - gurobi=11.0
+    - gurobi
+    - plotly
+    - jupyterlab
     - pip
     - pip:
         - git+https://github.com/calliope-project/calliope.git@67fce7593e9e3485c4235d4815bf62115ce2aff9
