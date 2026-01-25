@@ -18,7 +18,7 @@ config:
     calliope_version: 0.7.0
     time_subset: ["2019-01-01", "2019-12-31"] # Subset of timesteps
     time_resample: 3h
-    broadcast_param_data: false
+    broadcast_input_data: false
 
   build:
     ensure_feasibility: false # Switches on the "unmet demand" constraint
@@ -39,7 +39,7 @@ config:
         OptimalityTol: 1e-4
         BarConvTol: 1e-4
 
-parameters:
+data_definition:
   objective_cost_weights:
     data: [1, 0]
     index: [monetary, co2]

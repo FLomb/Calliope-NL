@@ -1,7 +1,7 @@
 overrides:
     spores_mode:
-        config.init.broadcast_param_data: false
-        parameters:
+        config.init.broadcast_input_data: false
+        data_definition:
           objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
             data: [1, 0, 0]
             index: ["monetary", "co2", "spores_score"]
@@ -15,7 +15,7 @@ overrides:
 
     
     define_spores_techs:    
-        parameters:
+        data_definition:
           spores_tracker: # defines which techs are going to be subject to the SPORES weighting process
             data: [true,true,true,true,true,true,true,true,true]
             index: [solar_pv, wind_onshore, wind_offshore, ccgt, bioenergy, coal, nuclear, battery, hydrogen_power_storage]
@@ -61,8 +61,8 @@ overrides:
 ###
 
     spores_mode_intensify_max:
-        config.init.broadcast_param_data: false
-        parameters:
+        config.init.broadcast_input_data: false
+        data_definition:
           objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
             data: [1, 0, 0, 0]
             index: ["monetary", "co2", "spores_score", "intensification"]
@@ -75,8 +75,8 @@ overrides:
         config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
 
     spores_mode_intensify_min:
-        config.init.broadcast_param_data: false
-        parameters:
+        config.init.broadcast_input_data: false
+        data_definition:
           objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
             data: [1, 0, 0, 0]
             index: ["monetary", "co2", "spores_score", "intensification"]
@@ -96,7 +96,7 @@ overrides:
                   index: ["monetary", "co2", "spores_score", "intensification"]
                   dims: costs
 
-        parameters:
+        data_definition:
           spores_tracker: # defines which techs are going to be subject to the SPORES weighting process
             data: [true,true,true,true,true,true,true,true,true]
             index: [solar_pv, wind_onshore, wind_offshore, ccgt, bioenergy, coal, nuclear, battery, hydrogen_power_storage]
