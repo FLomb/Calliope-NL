@@ -16,7 +16,7 @@ import matplotlib.colors as mcolors
 
 #%%
 
-def plot_dispatch(model_path, plot_export_path='', colors={}):
+def plot_dispatch(model_path, plot_export_path='', colors={}, exclude_transmission=True):
 
     try:
         model = calliope.read_netcdf(model_path)
@@ -44,12 +44,16 @@ def plot_dispatch(model_path, plot_export_path='', colors={}):
             )
     time_resolution = model.inputs.timestep_resolution.to_series().max()
 
-
+    if exclude_transmission == True:
+        df_electricity = df_electricity[~df_electricity['techs'].str.contains('_to_')]
+    else:
+        pass
+    
     df_electricity_demand = df_electricity[df_electricity.techs == "demand_power"]
     df_electricity_demand.loc[:,"Flow in/out (MW)"] = df_electricity_demand["Flow in/out (MW)"]/time_resolution
     df_electricity_other = df_electricity[df_electricity.techs != "demand_power"]
     df_electricity_other.loc[:,"Flow in/out (MW)"] = df_electricity_other["Flow in/out (MW)"]/time_resolution
-
+    
     fig = px.bar(
         df_electricity_other,
         x="timesteps",

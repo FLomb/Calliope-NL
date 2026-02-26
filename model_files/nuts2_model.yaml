@@ -16,11 +16,13 @@ config:
     # What version of Calliope this model is intended for
     calliope_version: 0.7.0
     subset:
-      timesteps: ["2019-01-01", "2019-12-31"] # Subset of timesteps
+      timesteps: ["2019-01-01", "2019-01-31"] # Subset of timesteps
     resample.timesteps: 3h
     broadcast_input_data: false
     mode: base # You can choose either "base", or "operate"
-    extra_math: ["custom_math/import_export_share.yaml"]
+    math_paths:
+        additional_math: "custom_math/import_export_share.yaml"
+    extra_math: ["additional_math"]
 
   build:
     ensure_feasibility: false # Switches on the "unmet demand" constraint
