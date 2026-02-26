@@ -8,7 +8,7 @@ The model is built on the Python-based open-source energy modelling framework Ca
 To be ready to run the model, we recommend installing a `calliope-NL` environment from the `environment.yml` file in this repository. Simply run the command below from a terminal in the same directory as the file:
 
 ```
-conda env create -f requirements.yml
+conda env create -f environment.yml
 ```
 
 ## Overview
