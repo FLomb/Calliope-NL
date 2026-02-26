@@ -28,9 +28,9 @@ def run_spores(number_of_spores, cost_optimal_model, scoring_method='integer'):
             )
             # Update the slack-cost backend parameter based on the calculated minimum feasible system design cost
             least_feasible_cost
-            model.backend.update_parameter("spores_cost_max", least_feasible_cost)
+            model.backend.update_input("spores_cost_max", least_feasible_cost)
             # Update the objective_cost_weights to reflect the ones defined for the SPORES mode
-            model.backend.update_parameter(
+            model.backend.update_input(
                 "objective_cost_weights", model.inputs.spores_objective_cost_weights
             )
         else:
@@ -39,7 +39,7 @@ def run_spores(number_of_spores, cost_optimal_model, scoring_method='integer'):
         # Calculate weights based on a scoring method
         spores_score = score_via_method(scoring_method, model)
         # Assign a new score based on the calculated penalties
-        model.backend.update_parameter(
+        model.backend.update_input(
             "cost_flow_cap", spores_score.reindex_like(model.inputs.cost_flow_cap)
         )
         # Run the model again to get a solution that reflects the new penalties
@@ -78,7 +78,7 @@ def score_via_method(scoring_method, model):
     
     def scoring_integer(results, backend):
         # Filter for technologies of interest
-        spores_techs = backend.inputs["spores_tracker"].notnull()
+        spores_techs = model.inputs["spores_tracker"].notnull()
         # Look at capacity deployment in the previous iteration
         previous_cap = results.flow_cap 
         # Make sure that penalties are applied only to non-negligible deployments of capacity
@@ -109,7 +109,7 @@ def score_via_method(scoring_method, model):
     
     def scoring_random(results, backend):
         # Filter for technologies of interest
-        spores_techs = backend.inputs["spores_tracker"].notnull()
+        spores_techs = model.inputs["spores_tracker"].notnull()
         # Look at capacity deployment in the previous iteration
         previous_cap = results.flow_cap 
         
@@ -142,7 +142,7 @@ def score_via_method(scoring_method, model):
         bigM = float(min(backend.inputs.bigM,backend.inputs['flow_cap_max'].max()))
         # Filter for technologies of interest and that exist at a given node
         existence = backend.inputs.definition_matrix
-        spores_techs = backend.inputs["spores_tracker"].notnull()
+        spores_techs = model.inputs["spores_tracker"].notnull()
         # Look at capacity deployment in the previous iteration and calculate the relative deployment
         previous_cap = results.flow_cap 
         potential_max_cap = backend.inputs['flow_cap_max']

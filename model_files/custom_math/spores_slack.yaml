@@ -1,3 +1,13 @@
+parameters:
+    spores_cost_max:
+        description: Cost to undergo multiplication by the slack
+        default: .inf
+        unit: cost
+    spores_slack:
+        description: Marginal cost increment allowed, as incremental fraction
+        default: 0.1
+        unit: unitless
+
 constraints:
   total_system_cost_max:
     description: >

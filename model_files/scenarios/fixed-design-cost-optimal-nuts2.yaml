@@ -3,23 +3,23 @@ overrides:
     nodes:
       NL11.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
           flow_cap_max: 85
           flow_cap_min: 85
         ccgt:
-          flow_cap_max: 1837
-          flow_cap_min: 1837
+          flow_cap_max: 403
+          flow_cap_min: 403
         coal:
-          flow_cap_max: 1604
-          flow_cap_min: 1604
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 3074
           flow_cap_min: 3074
@@ -31,23 +31,23 @@ overrides:
           flow_cap_min: 4431
       NL12.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
           flow_cap_max: 0
           flow_cap_min: 0
         ccgt:
-          flow_cap_max: 144
-          flow_cap_min: 144
+          flow_cap_max: 141
+          flow_cap_min: 141
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 2265
           flow_cap_min: 2265
@@ -55,27 +55,27 @@ overrides:
           flow_cap_max: 499
           flow_cap_min: 499
         wind_onshore:
-          flow_cap_max: 2590
-          flow_cap_min: 2590
+          flow_cap_max: 3450
+          flow_cap_min: 3450
       NL13.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
-        bioenergy:
           flow_cap_max: 0
           flow_cap_min: 0
+        bioenergy:
+          flow_cap_max: 3
+          flow_cap_min: 3
         ccgt:
           flow_cap_max: 254
           flow_cap_min: 254
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 3013
           flow_cap_min: 3013
@@ -83,27 +83,27 @@ overrides:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
         wind_onshore:
-          flow_cap_max: 314
-          flow_cap_min: 314
+          flow_cap_max: 2143
+          flow_cap_min: 2143
       NL21.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
-          flow_cap_max: 0
-          flow_cap_min: 0
+          flow_cap_max: 12
+          flow_cap_min: 12
         ccgt:
-          flow_cap_max: 119
-          flow_cap_min: 119
+          flow_cap_max: 116
+          flow_cap_min: 116
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 2252
           flow_cap_min: 2252
@@ -115,23 +115,23 @@ overrides:
           flow_cap_min: 52
       NL22.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
-          flow_cap_max: 0
-          flow_cap_min: 0
+          flow_cap_max: 546
+          flow_cap_min: 546
         ccgt:
-          flow_cap_max: 193
-          flow_cap_min: 193
+          flow_cap_max: 192
+          flow_cap_min: 192
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 2658
           flow_cap_min: 2658
@@ -143,23 +143,23 @@ overrides:
           flow_cap_min: 205
       NL23.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
-          flow_cap_max: 0
-          flow_cap_min: 0
+          flow_cap_max: 6
+          flow_cap_min: 6
         ccgt:
-          flow_cap_max: 872
-          flow_cap_min: 872
+          flow_cap_max: 865
+          flow_cap_min: 865
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 1390
           flow_cap_min: 1390
@@ -167,27 +167,27 @@ overrides:
           flow_cap_max: 480
           flow_cap_min: 480
         wind_onshore:
-          flow_cap_max: 1975
-          flow_cap_min: 1975
+          flow_cap_max: 3075
+          flow_cap_min: 3075
       NL31.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
-          flow_cap_max: 0
-          flow_cap_min: 0
+          flow_cap_max: 12
+          flow_cap_min: 12
         ccgt:
-          flow_cap_max: 1034
-          flow_cap_min: 1034
+          flow_cap_max: 879
+          flow_cap_min: 879
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 803
           flow_cap_min: 803
@@ -199,23 +199,23 @@ overrides:
           flow_cap_min: 30
       NL32.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
-          flow_cap_max: 0
-          flow_cap_min: 0
+          flow_cap_max: 19
+          flow_cap_min: 19
         ccgt:
-          flow_cap_max: 658
-          flow_cap_min: 658
+          flow_cap_max: 657
+          flow_cap_min: 657
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 1443
           flow_cap_min: 1443
@@ -227,23 +227,23 @@ overrides:
           flow_cap_min: 2420
       NL33.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
           flow_cap_max: 135
           flow_cap_min: 135
         ccgt:
-          flow_cap_max: 3528
-          flow_cap_min: 3528
+          flow_cap_max: 2835
+          flow_cap_min: 2835
         coal:
-          flow_cap_max: 4211
-          flow_cap_min: 4211
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 1603
           flow_cap_min: 1603
@@ -251,24 +251,24 @@ overrides:
           flow_cap_max: 505
           flow_cap_min: 505
         wind_onshore:
-          flow_cap_max: 2300
-          flow_cap_min: 2300
+          flow_cap_max: 2444
+          flow_cap_min: 2444
       NL34.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
-        bioenergy:
           flow_cap_max: 0
           flow_cap_min: 0
+        bioenergy:
+          flow_cap_max: 7
+          flow_cap_min: 7
         ccgt:
-          flow_cap_max: 1393
-          flow_cap_min: 1393
+          flow_cap_max: 13
+          flow_cap_min: 13
         coal:
-          flow_cap_max: 485
-          flow_cap_min: 485
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
+        hydrogen_power_storage:
+          flow_cap_max: 0
+          flow_cap_min: 0
         nuclear:
           flow_cap_max: 485
           flow_cap_min: 485
@@ -279,27 +279,27 @@ overrides:
           flow_cap_max: 625
           flow_cap_min: 625
         wind_onshore:
-          flow_cap_max: 2786
-          flow_cap_min: 2786
+          flow_cap_max: 2930
+          flow_cap_min: 2930
       NL41.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
-          flow_cap_max: 0
-          flow_cap_min: 0
+          flow_cap_max: 513
+          flow_cap_min: 513
         ccgt:
-          flow_cap_max: 132
-          flow_cap_min: 132
+          flow_cap_max: 131
+          flow_cap_min: 131
         coal:
-          flow_cap_max: 601
-          flow_cap_min: 601
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 2835
           flow_cap_min: 2835
@@ -311,23 +311,23 @@ overrides:
           flow_cap_min: 416
       NL42.techs:
         battery:
-          flow_cap_max: 0.0
-          flow_cap_min: 0.0
+          flow_cap_max: 0
+          flow_cap_min: 0
         bioenergy:
-          flow_cap_max: 0
-          flow_cap_min: 0
+          flow_cap_max: 862
+          flow_cap_min: 862
         ccgt:
-          flow_cap_max: 283
-          flow_cap_min: 283
+          flow_cap_max: 282
+          flow_cap_min: 282
         coal:
-          flow_cap_max: 0
-          flow_cap_min: 0
-        hydrogen_power_storage:
           flow_cap_max: 0.0
           flow_cap_min: 0.0
-        nuclear:
+        hydrogen_power_storage:
           flow_cap_max: 0
           flow_cap_min: 0
+        nuclear:
+          flow_cap_max: 0.0
+          flow_cap_min: 0.0
         solar_pv:
           flow_cap_max: 1303
           flow_cap_min: 1303

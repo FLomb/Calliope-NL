@@ -11,7 +11,8 @@ overrides:
             dims: costs
           spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
+        config.init.math_paths.spores_math: "custom_math/spores_slack.yaml"
+        config.init.extra_math: ["additional_math","spores_math"]
 
     
     define_spores_techs:    
@@ -67,12 +68,13 @@ overrides:
             data: [1, 0, 0, 0]
             index: ["monetary", "co2", "spores_score", "intensification"]
           spores_objective_cost_weights: # defines how to change the model objective once entering the SPORES loop
-            data: [0, 0, 1, -1000]
+            data: [0, 0, 1, -100]
             index: ["monetary", "co2", "spores_score", "intensification"]
             dims: costs
           spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
+        config.init.math_paths.spores_math: "custom_math/spores_slack.yaml"
+        config.init.extra_math: ["additional_math","spores_math"]
 
     spores_mode_intensify_min:
         config.init.broadcast_input_data: false
@@ -81,12 +83,13 @@ overrides:
             data: [1, 0, 0, 0]
             index: ["monetary", "co2", "spores_score", "intensification"]
           spores_objective_cost_weights: # defines how to change the model objective once entering the SPORES loop
-            data: [0, 0, 1, 1000]
+            data: [0, 0, 1, 100]
             index: ["monetary", "co2", "spores_score", "intensification"]
             dims: costs
           spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
+        config.init.math_paths.spores_math: "custom_math/spores_slack.yaml"
+        config.init.extra_math: ["additional_math","spores_math"]
 
     define_intensified_and_spores_techs:    
         templates:    
