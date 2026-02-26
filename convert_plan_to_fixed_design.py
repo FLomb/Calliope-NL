@@ -10,7 +10,7 @@ def plan_results_to_fixedcap_override(model, filename='generic'):
     inputs = model.inputs
     caps = results.flow_cap.sel(carriers='power').to_pandas()
     caps_max = inputs.flow_cap_max.to_pandas()
-    safe_oversize = 1
+    safe_oversize = 1.05
     override_dict = {'overrides':{'fix-design-to-{}'.format(filename):{'nodes':{}, 'techs':{}}}}
     all_techs = [x for x in caps.columns if '_to_' not in x and 
              'demand' not in x and 'lost' not in x and 'curtailment' not in x and

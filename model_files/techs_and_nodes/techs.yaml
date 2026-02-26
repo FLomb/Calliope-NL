@@ -10,8 +10,6 @@ templates:
       dims: costs
 
   hv_transmission:
-    name: "High-voltage AC power transmission"
-    color: "#6783E3"
     carrier_in: power
     carrier_out: power
     base_tech: transmission
@@ -23,8 +21,6 @@ templates:
       index: monetary
       dims: costs
   subsea_transmission:
-    name: "High-voltage subsea DC power transmission"
-    color: "#6783E3"
     carrier_in: power
     carrier_out: power
     base_tech: transmission
@@ -45,8 +41,6 @@ techs:
 
   # lost load
   lost_load:  # dummy supply technology to represent lost load
-    name: 'Lost load'
-    color: '#030303'
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -59,13 +53,10 @@ techs:
 
   # import power
   import_power:  # dummy supply technology to represent import of power
-    name: 'Power Import'
-    color: '#ff31fe'
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
     lifetime: 20
-    supply_share_upperbound: True
     cost_flow_out:
       data: 0.1 # kEUR per MWh
       index: monetary
@@ -73,8 +64,6 @@ techs:
     # import power-end
 
   ccgt:
-    name: "Combined cycle gas turbine"
-    color: "#E37A72"
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -93,14 +82,12 @@ techs:
       data: [0.024568, 0.198] # kEUR per MWh (gas price) / tonCO2 per MWh
       index: [monetary,co2]
       dims: costs
-    om_annual_investment_fraction:
+    cost_om_annual:
       data: 3.3392 # kEUR per MW peryear
       index: monetary
       dims: costs
 
   bioenergy:
-    name: "Bioenergy power plants"
-    color: "#936944"
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -120,15 +107,13 @@ techs:
       data: 0.0074 # kEUR per MWh (bioenergy fuel price)
       index: monetary
       dims: costs
-    om_annual_investment_fraction:
+    cost_om_annual:
       data: 4.5269 # kEUR per MW peryear
       index: monetary
       dims: costs
 
 
   coal:
-    name: "Coal power plants"
-    color: "#48423d"
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -148,14 +133,12 @@ techs:
       data: [0.00955, 0.3361] # kEUR per MWh (coal price) / tonCO2 per MWh
       index: [monetary, co2]
       dims: costs
-    om_annual_investment_fraction:
+    cost_om_annual:
       data: 1.31 # kEUR per MW peryear
       index: monetary
       dims: costs
 
   nuclear:
-    name: "Nuclear power plants"
-    color: "#e83a57"
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -174,7 +157,7 @@ techs:
       data: 0.00341 # kEUR per MWh (nuclear fuel price)
       index: monetary
       dims: costs
-    om_annual_investment_fraction:
+    cost_om_annual:
       data: 1.27 # kEUR per MW peryear
       index: monetary
       dims: costs
@@ -184,8 +167,6 @@ techs:
   ##------------------------------------------------------------------------------------------
 
   solar_pv:
-    name: "Solar photovoltaic power"
-    color: "#F9D956"
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -199,14 +180,12 @@ techs:
       data:  0.0000106 # kEUR per MWh
       index: monetary
       dims: costs
-    om_annual_investment_fraction:
+    cost_om_annual:
       data: 1.7275 # kEUR per MW peryear
       index: monetary
       dims: costs
 
   wind_onshore:
-    name: "Wind power onshore"
-    color: "#56F9C0"
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -220,15 +199,13 @@ techs:
       data: 0.001508 # kEUR per MW
       index: monetary
       dims: costs
-    om_annual_investment_fraction:
+    cost_om_annual:
       data: 1.2347 # kEUR per MW peryear
       index: monetary
       dims: costs
 
 
   wind_offshore:
-    name: "Wind power offshore"
-    color: "#56CBF9"
     base_tech: supply
     template: interest_rate_setter
     carrier_out: power
@@ -242,7 +219,7 @@ techs:
       data: 0.0000212 # kEUR per MW
       index: monetary
       dims: costs
-    om_annual_investment_fraction:
+    cost_om_annual:
       data: 2.374 # kEUR per MW peryear
       index: monetary
       dims: costs
@@ -253,13 +230,13 @@ techs:
   ##------------------------------------------------------------------------------------------
 
   # battery storage
-  battery:
-    name: 'Battery storage'
-    color: '#33F6FF'            
+  battery:        
     base_tech: storage
     template: interest_rate_setter
     carrier_in: power
     carrier_out: power    
+    cyclic_storage: false   
+    storage_initial: 0
     storage_discharge_depth: 0.01
     lifetime: 15  # 8000 charge cycles
     flow_cap_per_storage_cap_max: 0.25 #takes four hours for discharging 
@@ -270,7 +247,7 @@ techs:
       data: 885 # kEUR per MWh
       index: monetary
       dims: costs
-    cost_om_annual_investment_fraction: 
+    cost_om_annual: 
       data: 0.57 # kEUR per MW per year
       index: monetary
       dims: costs
@@ -281,13 +258,13 @@ techs:
   # battery storage-end
 
   # power-to-hydrogen-to-power storage
-  hydrogen_power_storage:
-    name: 'Hydrogen-to-power storage'
-    color: '#9958D6'            
+  hydrogen_power_storage:         
     base_tech: storage
     template: interest_rate_setter
     carrier_in: power
-    carrier_out: power    
+    carrier_out: power 
+    cyclic_storage: false   
+    storage_initial: 0
     lifetime: 17.5  # average of 10 years (fuel cell) and 25 (electrolyser)
     flow_out_eff: 0.5 # fuel cell
     flow_in_eff: 0.5874 # electrolyser
@@ -299,7 +276,7 @@ techs:
       data: 4403.83 # kEUR per MW_el | from Schmidt 2019, 3575.22 $/kW * 1.34 (2015 to 2025 inflation) * 0.92 (dollar to EUR 2025) 
       index: monetary
       dims: costs
-    cost_om_annual_investment_fraction: 
+    cost_om_annual: 
       data: 4.5 # kEUR per MW per year (average of fuel cell and electrolyser, DEA 2025)
       index: monetary
       dims: costs
@@ -315,25 +292,18 @@ techs:
   ##------------------------------------------------------------------------------------------
 
   demand_power:
-    name: "Power demand"
-    color: "#072486"
     base_tech: demand
     carrier_in: power
 
   curtailment:
-    name: "Power curtailment"
-    color: "#70002a"
     base_tech: demand
     carrier_in: power
-    resource_use_max: 20000 # higher than peak demand
+    source_use_max: 20000 # higher than peak demand
 
   export_power:
-    name: "Power export"
-    color: "#ff31fe"
     base_tech: demand
     carrier_in: power
-    resource_use_max: 20000 # higher than peak demand
-    demand_share_upperbound: True
+    source_use_max: 20000 # higher than peak demand
     cost_flow_in:
       data: -0.1 # kEUR per MW
       index: monetary

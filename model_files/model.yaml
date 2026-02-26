@@ -16,15 +16,17 @@ config:
     name: NL Power System example
     # What version of Calliope this model is intended for
     calliope_version: 0.7.0
-    time_subset: ["2019-01-01", "2019-12-31"] # Subset of timesteps
-    time_resample: 3h
-    broadcast_param_data: false
+    subset:
+      timesteps: ["2019-01-01", "2019-01-31"] # Subset of timesteps
+    resample.timesteps: 3h
+    broadcast_input_data: false
+    mode: base # You can choose either "base", or "operate"
+    math_paths:
+        additional_math: "custom_math/import_export_share.yaml"
+    extra_math: ["additional_math"]
 
   build:
     ensure_feasibility: false # Switches on the "unmet demand" constraint
-    mode: plan # You can choose either "plan", or "operate"
-    add_math: ["custom_math/import_export_share.yaml"]
-
 
   solve:
     solver: gurobi
@@ -39,7 +41,7 @@ config:
         OptimalityTol: 1e-4
         BarConvTol: 1e-4
 
-parameters:
+data_definitions:
   objective_cost_weights:
     data: [1, 0]
     index: [monetary, co2]

@@ -1,0 +1,17 @@
+technology_id,name,color
+hv_transmission,High-voltage AC power transmission,#6783E3
+subsea_transmission,High-voltage subsea DC power transmission,#6783E3
+lost_load,Lost load,#030303
+import_power,Power Import,#ff31fe
+ccgt,Combined cycle gas turbine,#E37A72
+bioenergy,Bioenergy power plants,#936944
+coal,Coal power plants,#48423d
+nuclear,Nuclear power plants,#e83a57
+solar_pv,Solar photovoltaic power,#F9D956
+wind_onshore,Wind power onshore,#56F9C0
+wind_offshore,Wind power offshore,#56CBF9
+battery,Battery storage,#33F6FF
+hydrogen_power_storage,Hydrogen-to-power storage,#9958D6
+demand_power,Power demand,#072486
+curtailment,Power curtailment,#70002a
+export_power,Power export,#ff31fe

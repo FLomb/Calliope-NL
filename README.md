@@ -4,8 +4,8 @@ A model of the Dutch power system with data at both simplified-NUTS3 (22 nodes) 
 <img src="NL_grid_map.png" width="600">
 
 ## Requirements
-The model is built on the Python-based open-source energy modelling framework Calliope, version 0.7.0.dev6. 
-To be ready to run the model, we recommend installing a `calliope-NL` environment from the `environment.yml` file in this repository. Simply run the command below from a terminal in the same directory as the file:
+The model is built on the Python-based open-source energy modelling framework Calliope, version 0.7.0.dev7. 
+To be ready to run the model, we recommend installing a `calliope_NL` environment from the `environment.yml` file in this repository. Simply run the command below from a terminal in the same directory as the file:
 
 ```
 conda env create -f environment.yml

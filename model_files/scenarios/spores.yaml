@@ -1,7 +1,7 @@
 overrides:
     spores_mode:
-        config.init.broadcast_param_data: false
-        parameters:
+        config.init.broadcast_input_data: false
+        data_definitions:
           objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
             data: [1, 0, 0]
             index: ["monetary", "co2", "spores_score"]
@@ -11,11 +11,12 @@ overrides:
             dims: costs
           spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
+        config.init.math_paths.spores_math: "custom_math/spores_slack.yaml"
+        config.init.extra_math: ["additional_math","spores_math"]
 
     
     define_spores_techs:    
-        parameters:
+        data_definitions:
           spores_tracker: # defines which techs are going to be subject to the SPORES weighting process
             data: [true,true,true,true,true,true,true,true,true]
             index: [solar_pv, wind_onshore, wind_offshore, ccgt, bioenergy, coal, nuclear, battery, hydrogen_power_storage]
@@ -61,32 +62,34 @@ overrides:
 ###
 
     spores_mode_intensify_max:
-        config.init.broadcast_param_data: false
-        parameters:
+        config.init.broadcast_input_data: false
+        data_definitions:
           objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
             data: [1, 0, 0, 0]
             index: ["monetary", "co2", "spores_score", "intensification"]
           spores_objective_cost_weights: # defines how to change the model objective once entering the SPORES loop
-            data: [0, 0, 1, -1000]
+            data: [0, 0, 1, -100]
             index: ["monetary", "co2", "spores_score", "intensification"]
             dims: costs
           spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
+        config.init.math_paths.spores_math: "custom_math/spores_slack.yaml"
+        config.init.extra_math: ["additional_math","spores_math"]
 
     spores_mode_intensify_min:
-        config.init.broadcast_param_data: false
-        parameters:
+        config.init.broadcast_input_data: false
+        data_definitions:
           objective_cost_weights: # makes sure that a 'spores_score' class exists in the model and in the objective
             data: [1, 0, 0, 0]
             index: ["monetary", "co2", "spores_score", "intensification"]
           spores_objective_cost_weights: # defines how to change the model objective once entering the SPORES loop
-            data: [0, 0, 1, 1000]
+            data: [0, 0, 1, 100]
             index: ["monetary", "co2", "spores_score", "intensification"]
             dims: costs
           spores_slack: 0.2
           spores_cost_max: 1e8 # defines an initially very high (virtually infinite) cost constraint, later linked to the slack
-        config.build.add_math: ["custom_math/import_export_share.yaml","custom_math/spores_slack.yaml"]
+        config.init.math_paths.spores_math: "custom_math/spores_slack.yaml"
+        config.init.extra_math: ["additional_math","spores_math"]
 
     define_intensified_and_spores_techs:    
         templates:    
@@ -96,7 +99,7 @@ overrides:
                   index: ["monetary", "co2", "spores_score", "intensification"]
                   dims: costs
 
-        parameters:
+        data_definitions:
           spores_tracker: # defines which techs are going to be subject to the SPORES weighting process
             data: [true,true,true,true,true,true,true,true,true]
             index: [solar_pv, wind_onshore, wind_offshore, ccgt, bioenergy, coal, nuclear, battery, hydrogen_power_storage]
