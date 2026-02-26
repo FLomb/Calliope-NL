@@ -1,13 +1,15 @@
 name: calliope_NL
 channels:
+    - conda-forge/label/calliope_dev
     - conda-forge
     - gurobi
 dependencies:
     - python=3.12
-    - gurobi
     - matplotlib
+    - seaborn
     - plotly
     - jupyterlab
+    - gurobi
+    - calliope=0.7.0dev7
+    - pyproj
     - pip
-    - pip:
-        - git+https://github.com/calliope-project/calliope.git@bdda2dbb7c359ed8dfc38b51b884b1bbb837a464
