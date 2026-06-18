@@ -7,7 +7,7 @@ This README documents the analysis for the Calliope-NL SPORES results.
 - `src/calliope_nl_analysis/`: reusable Python helpers for SPORES inventory, feature extraction, clustering, plotting, project-result tables, and distribution packaging.
 - `notebooks/01_spores_inventory.ipynb`: compact inventory and manifest checks.
 - `notebooks/02_spores_clustering.ipynb`: configurable clustering workbench for selecting a decision variable, clustering method, and parameter preset.
-- `notebooks/03_project_results_shareable.ipynb`: clean notebook for the selected project-result workflow and small result-table exports.
+- `notebooks/03_project_results.ipynb`: clean notebook for the selected project-result workflow and small result-table exports.
 - `scripts/prepare_spores_distribution.py`: command-line helper for generating the SPORES manifest and optional ZIP archives.
 - `metadata/spores_manifest.csv`: generated index of the local SPORES NetCDF files.
 - `environment-analysis.yml`: analysis environment with the packages used by the notebooks and helper modules.
@@ -22,12 +22,12 @@ src/calliope_nl_analysis/
   clustering.py       # K-means, DBSCAN, hierarchical clustering helpers
   workbench.py        # configurable clustering presets and diagnostics
   project_results.py  # selected project-result parameters, tables, candidates
-  plots.py            # readable plotting helpers
+  plots.py            # plotting helpers for clear figures
   distribution.py     # manifest and ZIP preparation
 notebooks/
   01_spores_inventory.ipynb
   02_spores_clustering.ipynb
-  03_project_results_shareable.ipynb
+  03_project_results.ipynb
 metadata/
   spores_manifest.csv
 scripts/
@@ -47,7 +47,7 @@ The main workflow is:
 2. Request access to the private SPORES data archives from the project maintainers.
 3. Extract the required family ZIP archives so the `.nc` files are under `results/spores/`.
 4. Run `notebooks/01_spores_inventory.ipynb` to verify the local data inventory.
-5. Use `notebooks/02_spores_clustering.ipynb` for configurable analyses, or `notebooks/03_project_results_shareable.ipynb` for the selected project-result workflow.
+5. Use `notebooks/02_spores_clustering.ipynb` for configurable analyses, or `notebooks/03_project_results.ipynb` for the selected project-result workflow.
 
 ## Clustering Workbench
 
@@ -58,7 +58,7 @@ Use `notebooks/02_spores_clustering.ipynb` for configurable analyses. It current
 
 To tune parameters or add a decision variable, edit `src/calliope_nl_analysis/workbench.py`: update or add an `AnalysisPreset` in `PRESETS`, then update `build_matrix(...)` if the variable needs a new aggregation rule.
 
-Use `notebooks/03_project_results_shareable.ipynb` for the selected project-result workflow:
+Use `notebooks/03_project_results.ipynb` for the selected project-result workflow:
 
 - Capacity clustering on the 9 national `flow_cap` technologies.
 - Time-series clustering on national `cost_operation_variable`.

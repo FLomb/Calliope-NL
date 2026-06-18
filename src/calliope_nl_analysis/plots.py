@@ -169,7 +169,7 @@ def plot_capacity_centroids(
     """Plot cluster centroids for the capacity feature matrix.
 
     The default heatmap encodes each technology relative to its own maximum,
-    which makes small but meaningful technologies readable next to solar/wind.
+    which keeps small but meaningful technologies visible next to solar/wind.
     Set ``style="bar"`` for the original grouped-bar view.
     """
 
