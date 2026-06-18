@@ -79,26 +79,14 @@ The existing project environment remains untouched. The new environment file is 
 
 ## Data Availability
 
-The 151 SPORES NetCDF files are not stored in this Git repository because of the high local payload. The archives are kept in a private data repository and are available from the project maintainers upon request.
+The 151 SPORES NetCDF files are not stored in this Git repository because of the high local payload. The archives are kept in a private GitHub release and are available from the project maintainers upon request.
 
-This repository keeps only the code, notebooks, and `metadata/spores_manifest.csv`, which lists the expected SPORES files and their sizes. Users with data access should download the requested family ZIP archives, extract them locally, and place the `.nc` files under `results/spores/`.
+Approved users receive access to the private data repository and can download the requested family ZIP archives from the release assets. After downloading, extract the archives locally and place the `.nc` files under `results/spores/`.
 
-The private archive package is prepared as one ZIP per SPORES family:
+The private archive release contains:
 
-```bash
-python scripts/prepare_spores_distribution.py --output-dir dist/spores --archives family
-```
-
-Before uploading to the private data repository, create checksums:
-
-```bash
-shasum -a 256 dist/spores/*.zip > dist/spores/SHA256SUMS.txt
-```
-
-Upload these private data assets:
-
-- `dist/spores/spores_*.zip`
-- `dist/spores/SHA256SUMS.txt`
+- `spores_*.zip`: one ZIP archive per SPORES family.
+- `SHA256SUMS.txt`: checksums for verifying downloaded ZIP files.
 - `metadata/spores_manifest.csv`
 
 ## Related Work
