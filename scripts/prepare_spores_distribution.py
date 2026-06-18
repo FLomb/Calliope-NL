@@ -16,6 +16,7 @@ from calliope_nl_analysis.distribution import (  # noqa: E402
     distribution_summary,
     make_family_archives,
     make_single_archive,
+    verify_archive_checksums,
     write_manifest,
 )
 
@@ -37,6 +38,17 @@ def parse_args() -> argparse.Namespace:
         default="stored",
         help="Use stored ZIP entries for speed, or deflated entries for smaller archives.",
     )
+    parser.add_argument(
+        "--verify-archives",
+        action="store_true",
+        help="Verify ZIP archives in --output-dir against SHA256SUMS.txt and exit.",
+    )
+    parser.add_argument(
+        "--checksum-file",
+        type=Path,
+        default=None,
+        help="Checksum file to use with --verify-archives. Defaults to --output-dir/SHA256SUMS.txt.",
+    )
     return parser.parse_args()
 
 
@@ -44,6 +56,29 @@ def main() -> None:
     args = parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     compression = zipfile.ZIP_STORED if args.compression == "stored" else zipfile.ZIP_DEFLATED
+
+    if args.verify_archives:
+        result = verify_archive_checksums(args.output_dir, checksum_path=args.checksum_file)
+        print(f"Checksum file: {result['checksum_file']}")
+        print(f"Checked ZIP files: {len(result['checked'])}")
+        if result["missing"]:
+            print("Missing files:")
+            for filename in result["missing"]:
+                print(f"  - {filename}")
+        if result["mismatched"]:
+            print("Mismatched files:")
+            for item in result["mismatched"]:
+                print(f"  - {item['file']}")
+                print(f"    expected: {item['expected']}")
+                print(f"    actual:   {item['actual']}")
+        if result["extra"]:
+            print("Extra local ZIP files not listed in checksums:")
+            for filename in result["extra"]:
+                print(f"  - {filename}")
+        if not result["ok"]:
+            raise SystemExit(1)
+        print("All listed ZIP files passed SHA-256 verification.")
+        return
 
     manifest_path = write_manifest(
         args.spores_dir,

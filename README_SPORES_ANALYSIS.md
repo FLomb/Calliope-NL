@@ -43,11 +43,13 @@ The main workflow is:
 
 ## Quick Start
 
-1. Create the analysis environment with `conda env create -f environment-analysis.yml`.
+1. Create and activate the analysis environment with `conda env create -f environment-analysis.yml`.
 2. Request access to the private SPORES data archives from the project maintainers.
-3. Extract the required family ZIP archives so the `.nc` files are under `results/spores/`.
-4. Run `notebooks/01_spores_inventory.ipynb` to verify the local data inventory.
-5. Use `notebooks/02_spores_clustering.ipynb` for configurable analyses, or `notebooks/03_project_results.ipynb` for the selected project-result workflow.
+3. Download the required family ZIP archives and `SHA256SUMS.txt` into the same local download folder.
+4. (Optional) Verify the downloaded ZIP files with `python scripts/prepare_spores_distribution.py --output-dir <download-folder> --verify-archives`.
+5. Extract the required family ZIP archives so the `.nc` files are under `results/spores/`.
+6. Run `notebooks/01_spores_inventory.ipynb` to verify the local data inventory.
+7. Use `notebooks/02_spores_clustering.ipynb` for configurable analyses, or `notebooks/03_project_results.ipynb` for the selected project-result workflow.
 
 ## Clustering Workbench
 
@@ -73,15 +75,22 @@ Create a clean analysis environment:
 ```bash
 conda env create -f environment-analysis.yml
 conda activate calliope_NL_analysis
+python -m ipykernel install --user --name calliope_NL_analysis --display-name "calliope_NL_analysis"
 ```
 
-The existing project environment remains untouched. The new environment file is meant for the analysis notebooks and package helpers.
+The existing project environment remains untouched. The new environment file is meant for the analysis notebooks and package helpers. The `ipykernel` command registers the environment as a selectable Jupyter kernel.
 
 ## Data Availability
 
 The 151 SPORES NetCDF files are not stored in this Git repository because of the high local payload. The archives are kept in a private GitHub release and are available from the project maintainers upon request.
 
-Approved users receive access to the private data repository and can download the requested family ZIP archives from the release assets. After downloading, extract the archives locally and place the `.nc` files under `results/spores/`.
+Approved users receive access to the private data repository and can download the requested family ZIP archives from the release assets. Keep `SHA256SUMS.txt` in the same folder as the downloaded ZIP archives if you want to verify them:
+
+```bash
+python scripts/prepare_spores_distribution.py --output-dir <download-folder> --verify-archives
+```
+
+The same check can also be run from inside the download folder with `shasum -a 256 -c SHA256SUMS.txt`. After verification, extract the archives locally and place only the `.nc` files under `results/spores/`.
 
 The private archive release contains:
 
