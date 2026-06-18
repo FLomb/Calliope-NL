@@ -1,0 +1,16 @@
+.DS_Store
+.vscode/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Local analysis outputs
+dist/
+outputs/
+results/*.xlsx
+results/spores/*.zip
+
+# Large SPORES NetCDF outputs should be distributed outside normal Git history.
+# Existing tracked files remain tracked until explicitly removed from Git.
+results/spores/*.nc

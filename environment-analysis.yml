@@ -1,0 +1,24 @@
+name: calliope_NL_analysis
+channels:
+  - conda-forge
+  - gurobi
+dependencies:
+  - python=3.12
+  - jupyterlab
+  - gurobi=11.0
+  - numpy
+  - pandas
+  - xarray
+  - netcdf4
+  - h5netcdf
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - plotly
+  - openpyxl
+  - ruamel.yaml
+  - pip
+  - pip:
+      - git+https://github.com/calliope-project/calliope/.git@67fce7593e9e3485c4235d4815bf62115ce2aff9
+      - -e .
