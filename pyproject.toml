@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calliope-nl-analysis"
+version = "0.1.0"
+description = "Reusable analysis helpers for Calliope-NL SPORES results."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "xarray",
+    "netCDF4",
+    "scipy",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "openpyxl",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
